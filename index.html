@@ -33,14 +33,9 @@
         }
 
         /* --- 2. ДЕКОРАЦИИ (ФОН) --- */
-        .landscape-wrapper, .clouds-container, .petal {
-            z-index: -1; 
-            pointer-events: none; 
-        }
-
+        .landscape-wrapper, .clouds-container, .petal { z-index: -1; pointer-events: none; }
         .landscape-wrapper { position: absolute; bottom: 0; left: 0; width: 100%; height: 800px; }
         .landscape-image { width: 100%; height: 100%; background-image: url('sakura_hills.png'); background-position: bottom center; background-size: cover; background-repeat: no-repeat; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 10%, rgba(0,0,0,0.5) 40%, black 100%); mask-image: linear-gradient(to bottom, transparent 0%, transparent 10%, rgba(0,0,0,0.5) 40%, black 100%); opacity: 0.95; }
-
         .clouds-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
         .cloud { position: absolute; background: #fff; border-radius: 100px; filter: blur(20px); opacity: 0.6; animation: floatCloud linear infinite; }
         .cloud::after, .cloud::before { content: ''; position: absolute; background: inherit; border-radius: 50%; }
@@ -50,24 +45,11 @@
         .cloud-2 { width: 400px; height: 120px; top: 15%; left: -400px; animation-duration: 80s; animation-delay: 10s; }
         .cloud-3 { width: 200px; height: 80px; top: 10%; left: -200px; animation-duration: 45s; animation-delay: 5s; opacity: 0.4; }
         @keyframes floatCloud { 0% { left: -400px; } 100% { left: 100%; } }
-
         .petal { position: fixed; top: -10%; background: radial-gradient(circle at 30% 30%, #ffc0cb, #ffb7c5); border-radius: 10% 80% 0% 80%; animation-name: falling; animation-timing-function: ease-in-out; animation-iteration-count: infinite; box-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
         @keyframes falling { 0% { transform: translate(0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg); opacity: 0; } 10% { opacity: 0.9; } 50% { transform: translate(50px, 50vh) rotateX(180deg) rotateY(180deg) rotateZ(90deg); opacity: 0.8; } 100% { transform: translate(-20px, 110vh) rotateX(360deg) rotateY(360deg) rotateZ(180deg); opacity: 0; } }
 
         /* --- 3. ШАПКА --- */
-        header {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 10px 40px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-            border-bottom: var(--glass-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        header { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); padding: 10px 40px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); border-bottom: var(--glass-border); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo-wrapper { display: flex; align-items: center; cursor: pointer; }
         .monogram { position: relative; width: 50px; height: 55px; margin-right: 10px; }
         .letter-f { font-family: 'Times New Roman', serif; font-size: 50px; font-weight: bold; color: var(--dark); position: absolute; top: -5px; left: 0; line-height: 1; z-index: 2; }
@@ -80,28 +62,10 @@
         nav button:hover, nav button.active { background-color: var(--primary); color: white; box-shadow: 0 4px 10px rgba(214, 51, 132, 0.3); }
 
         /* --- 4. КОНТЕНТ --- */
-        .page-section { 
-            display: none; 
-            padding: 40px 20px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            animation: fadeIn 0.5s; 
-            padding-bottom: 300px;
-            position: relative; 
-            z-index: 10; 
-        }
+        .page-section { display: none; padding: 40px 20px; max-width: 1200px; margin: 0 auto; animation: fadeIn 0.5s; padding-bottom: 300px; position: relative; z-index: 10; }
         .page-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .card, .info-card, .article-container { 
-            background: var(--glass); 
-            backdrop-filter: blur(8px); 
-            border: var(--glass-border); 
-            border-radius: 20px; 
-            box-shadow: var(--shadow); 
-            padding: 30px; 
-            margin-bottom: 20px; 
-        }
+        .card, .info-card, .article-container { background: var(--glass); backdrop-filter: blur(8px); border: var(--glass-border); border-radius: 20px; box-shadow: var(--shadow); padding: 30px; margin-bottom: 20px; }
 
         /* --- 5. ГЛАВНАЯ --- */
         .countdown-container { background: var(--glass); backdrop-filter: blur(8px); border: var(--glass-border); border-radius: 20px; box-shadow: var(--shadow); padding: 20px; margin-bottom: 30px; text-align: center; }
@@ -133,16 +97,13 @@
         .slider-btn { 
             position: absolute; top: 55%; transform: translateY(-50%); 
             background: white; color: var(--primary); border: 2px solid var(--primary); 
-            width: 40px; height: 40px; border-radius: 50%; cursor: pointer; 
-            z-index: 10; font-size: 20px; 
-            display: flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 20px;
+            display: flex; align-items: center; justify-content: center; 
         }
         .prev-btn { left: 10px; } .next-btn { right: 10px; }
-        
         .sale-banner { display: block; margin: 0 auto 40px auto; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s; }
         .sale-banner:hover { transform: scale(1.02); }
         .sale-banner img { width: 100%; display: block; }
-        
         .projects-section { padding: 30px 0; text-align: center; }
         .projects-section h2 { margin-bottom: 30px; color: var(--primary); font-size: 2.5rem; }
         .project-link { display: block; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s ease; margin-bottom: 20px; background: #fff; }
@@ -173,9 +134,9 @@
         .product-media { flex: 1; min-width: 300px; position: relative; }
         .prod-slider-container { width: 100%; height: 400px; position: relative; background: rgba(255,255,255,0.5); border-radius: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         
+        /* Слайды */
         .prod-slide, .prod-slide-2, .prod-slide-3, .prod-slide-4, .prod-slide-5, .prod-slide-6, .prod-slide-8, .prod-slide-9 { display: none; width: 100%; height: 100%; }
         .prod-slide.active, .prod-slide-2.active, .prod-slide-3.active, .prod-slide-4.active, .prod-slide-5.active, .prod-slide-6.active, .prod-slide-8.active, .prod-slide-9.active { display: flex; justify-content: center; align-items: center; }
-        
         .prod-slider-container img, .prod-slider-container video { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 20px; }
 
         .product-details { flex: 1; min-width: 300px; }
@@ -216,10 +177,8 @@
             .hero-text h1 { font-size: 2rem; }
             .promo-slide { min-width: 100%; }
             .projects-grid-2 { grid-template-columns: 1fr; }
-            .hero-image { height: 350px; margin-bottom: 20px; } /* Исправлена высота картинки на телефоне */
+            .hero-image { height: 350px; margin-bottom: 20px; } 
             .contacts-wrapper { grid-template-columns: 1fr; }
-            
-            /* Смещение стрелок, чтобы не закрывали фото */
             .slider-btn { top: 50%; width: 35px; height: 35px; font-size: 18px; }
             .prev-btn { left: 5px; }
             .next-btn { right: 5px; }
@@ -273,9 +232,10 @@
                 </div>
             </div>
             
-            <!-- Контейнер для смены картинок -->
+            <!-- СМЕНА КАРТИНОК -->
             <div class="hero-image">
                 <img src="catalog.jpg" class="hero-slide active" alt="Каталог 1">
+                <!-- ВНИМАНИЕ: ЗДЕСЬ .PNG (КАК В ПАПКЕ) -->
                 <img src="catalog2.png" class="hero-slide" alt="Каталог 2">
             </div>
         </div>
@@ -370,7 +330,8 @@
         <div class="grid-container">
             <div class="card"><img src="tovar2.jpg"><h3>Книга Ароматов</h3><div class="price">1300 ₽</div><button onclick="openPage('product-2')" class="btn-outline">О товаре</button></div>
             <div class="card"><img src="tovar3.jpg"><h3>Аромавизитница</h3><div class="price">2000 ₽</div><button onclick="openPage('product-3')" class="btn-outline">О товаре</button></div>
-            <div class="card"><img src="tovar4.jpg"><h3>Аромавизитки</h3><div class="price">1500 ₽</div><button onclick="openPage('product-4')" class="btn-outline">О товаре</button></div>
+            <!-- Обрати внимание: tovar4.JPG (большими) в коде прописан -->
+            <div class="card"><img src="tovar4.JPG"><h3>Аромавизитки</h3><div class="price">1500 ₽</div><button onclick="openPage('product-4')" class="btn-outline">О товаре</button></div>
             <div class="card"><img src="tovar5.jpg"><h3>Эксклюзивный планер</h3><div class="price">4500 ₽</div><button onclick="openPage('product-5')" class="btn-outline">О товаре</button></div>
             <div class="card"><img src="tovar6_color.jpg"><h3>Книга заказов</h3><div class="price">от 300 ₽</div><p style="font-size:0.9em;color:#666;">2 варианта</p><button onclick="openPage('product-6')" class="btn-outline">О товаре</button></div>
             <div class="card"><img src="tovar8.png"><h3>Памятка ЭкоСтрана</h3><div class="price">600 ₽</div><button onclick="openPage('product-8')" class="btn-outline">О товаре</button></div>
@@ -408,235 +369,29 @@
         </div>
     </div>
 
-    <!-- СТРАНИЦЫ ТОВАРОВ (ВСЕ ВИДЕО video1.mp4 - МАЛЕНЬКИМИ БУКВАМИ) -->
+    <!-- СТРАНИЦЫ ТОВАРОВ (ВСЕ ВИДЕО video1.mp4 - МАЛЕНЬКИМИ БУКВАМИ, кроме 6) -->
     
-    <div id="product-1" class="page-section">
-        <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
-        <div class="article-container product-page-container">
-            <div class="product-media">
-                <div class="prod-slider-container">
-                    <div class="prod-slide active"><img src="tovar1.jpg" alt="Блокнот фото 1"></div>
-                    <div class="prod-slide"><img src="tovar1_2.jpg" alt="Блокнот фото 2"></div>
-                    <!-- ИСПРАВЛЕНО: video1.mp4 и playsinline -->
-                    <div class="prod-slide"><video controls playsinline src="video1.mp4"></video></div>
-                </div>
-                <button class="slider-btn prev-btn" onclick="changeProd1Slide(-1)">&#10094;</button>
-                <button class="slider-btn next-btn" onclick="changeProd1Slide(1)">&#10095;</button>
-            </div>
-            <div class="product-details">
-                <h1>Парные блокноты</h1>
-                <p><em>«Любовь — это когда вы смотрите в одну сторону... а записываете в одинаковые блокноты».</em></p>
-                <p>Эти парные блокноты созданы для того, чтобы хранить ваши общие планы, мечты и теплые слова. Символ вашей связи, который всегда под рукой. Подарите половинку тому, кто дорог, и создавайте свою историю вместе.</p>
-                <div class="product-specs">
-                    <strong>Характеристики:</strong>
-                    <ul><li>Размер: 10 х 15 см</li><li>Объем: 80 страниц</li><li>Обложка: Плотная, приятная на ощупь</li></ul>
-                </div>
-                <div class="product-price">600 ₽</div>
-                <a href="https://t.me/TanushkaPups?text=Здравствуйте! Хочу заказать Парные блокноты" target="_blank" class="btn-main">Заказать в Telegram</a>
-            </div>
-        </div>
-    </div>
+    <div id="product-1" class="page-section"><button class="back-btn" onclick="openPage('shop')">← Назад</button><div class="article-container product-page-container"><div class="product-media"><div class="prod-slider-container"><div class="prod-slide active"><img src="tovar1.jpg"></div><div class="prod-slide"><img src="tovar1_2.jpg"></div><div class="prod-slide"><video controls playsinline src="video1.mp4"></video></div></div><button class="slider-btn prev-btn" onclick="changeProd1Slide(-1)">&#10094;</button><button class="slider-btn next-btn" onclick="changeProd1Slide(1)">&#10095;</button></div><div class="product-details"><h1>Парные блокноты</h1><p>Любовь — это когда вы смотрите в одну сторону...</p><div class="product-specs"><ul><li>Размер: 10х15 см</li><li>Объем: 80 стр.</li></ul></div><div class="product-price">600 ₽</div><a href="https://t.me/TanushkaPups?text=Хочу заказать Парные блокноты" class="btn-main">Заказать</a></div></div></div>
+    
+    <div id="product-2" class="page-section"><button class="back-btn" onclick="openPage('shop')">← Назад</button><div class="article-container product-page-container"><div class="product-media"><div class="prod-slider-container"><div class="prod-slide-2 active"><img src="tovar2.jpg"></div><!-- video2.mov (маленькими) --><div class="prod-slide-2"><video controls playsinline src="video2.mov"></video></div></div><button class="slider-btn prev-btn" onclick="changeProd2Slide(-1)">&#10094;</button><button class="slider-btn next-btn" onclick="changeProd2Slide(1)">&#10095;</button></div><div class="product-details"><h1>Книга Ароматов</h1><p>Ваш профессиональный инструмент...</p><div class="product-price">1300 ₽</div><a href="https://t.me/TanushkaPups?text=Хочу заказать Книгу Ароматов" class="btn-main">Заказать</a></div></div></div>
+    
+    <div id="product-3" class="page-section"><button class="back-btn" onclick="openPage('shop')">← Назад</button><div class="article-container product-page-container"><div class="product-media"><div class="prod-slider-container"><div class="prod-slide-3 active"><img src="tovar3.jpg"></div><div class="prod-slide-3"><img src="tovar3_2.jpg"></div><div class="prod-slide-3"><video controls playsinline src="video3.mp4"></video></div></div><button class="slider-btn prev-btn" onclick="changeProd3Slide(-1)">&#10094;</button><button class="slider-btn next-btn" onclick="changeProd3Slide(1)">&#10095;</button></div><div class="product-details"><h1>Аромавизитница</h1><div class="product-price">2000 ₽</div><a href="https://t.me/TanushkaPups?text=Хочу заказать" class="btn-main">Заказать</a></div></div></div>
+    
+    <!-- ТОВАР 4: БЕЗ ВИДЕО, ТОЛЬКО ФОТО (tovar4.JPG - большими) -->
+    <div id="product-4" class="page-section"><button class="back-btn" onclick="openPage('shop')">← Назад</button><div class="article-container product-page-container"><div class="product-media"><div class="prod-slider-container"><div class="prod-slide-4 active"><img src="tovar4.JPG"></div><div class="prod-slide-4"><img src="tovar4_2.jpg"></div></div><button class="slider-btn prev-btn" onclick="changeProd4Slide(-1)">&#10094;</button><button class="slider-btn next-btn" onclick="changeProd4Slide(1)">&#10095;</button></div><div class="product-details"><h1>Аромавизитки</h1><div class="product-price">1500 ₽</div><a href="https://t.me/TanushkaPups?text=Хочу заказать" class="btn-main">Заказать</a></div></div></div>
+    
+    <div id="product-5" class="page-section"><button class="back-btn" onclick="openPage('shop')">← Назад</button><div class="article-container product-page-container"><div class="product-media"><div class="prod-slider-container"><div class="prod-slide-5 active"><img src="tovar5.jpg"></div><div class="prod-slide-5"><video controls playsinline src="video5.mp4"></video></div></div><button class="slider-btn prev-btn" onclick="changeProd5Slide(-1)">&#10094;</button><button class="slider-btn next-btn" onclick="changeProd5Slide(1)">&#10095;</button></div><div class="product-details"><h1>Эксклюзивный планер</h1><div class="product-price">4500 ₽</div><a href="https://t.me/TanushkaPups?text=Хочу заказать Планер" class="btn-main">Заказать</a></div></div></div>
+    
+    <!-- ТОВАР 6: ВИДЕО .MOV БОЛЬШИМИ -->
+    <div id="product-6" class="page-section"><button class="back-btn" onclick="openPage('shop')">← Назад</button><div class="article-container product-page-container"><div class="product-media"><div class="prod-slider-container"><div class="prod-slide-6 active" id="slide-6-color"><img src="tovar6_color.jpg"></div><div class="prod-slide-6" id="slide-6-bw"><img src="tovar6_bw.jpg"></div><div class="prod-slide-6" id="slide-6-video"><video controls playsinline src="video6.MOV"></video></div></div><div style="text-align:center;margin-top:10px;"><button class="slider-btn prev-btn" style="position:relative;top:0;left:0;transform:none;" onclick="changeProd6Slide(-1)">&#10094;</button><button class="slider-btn next-btn" style="position:relative;top:0;right:0;transform:none;" onclick="changeProd6Slide(1)">&#10095;</button></div></div><div class="product-details"><h1>Книга заказов</h1><div class="variant-selector"><button class="variant-btn active" onclick="selectVariant('color')">Цветная</button><button class="variant-btn" onclick="selectVariant('bw')">Черно-белая</button></div><div class="product-price" id="price-6">600 ₽</div><a href="#" class="btn-main" id="btn-6">Заказать</a></div></div></div>
+    
+    <!-- ТОВАР 8: ВИДЕО .mov (маленькими) -->
+    <div id="product-8" class="page-section"><button class="back-btn" onclick="openPage('shop')">← Назад</button><div class="article-container product-page-container"><div class="product-media"><div class="prod-slider-container"><div class="prod-slide-8 active"><img src="tovar8.png"></div><div class="prod-slide-8"><video controls playsinline src="video8.mov"></video></div></div><button class="slider-btn prev-btn" onclick="changeProd8Slide(-1)">&#10094;</button><button class="slider-btn next-btn" onclick="changeProd8Slide(1)">&#10095;</button></div><div class="product-details"><h1>Памятка ЭкоСтрана</h1><div class="product-price">600 ₽</div><a href="https://t.me/TanushkaPups?text=Хочу Памятку" class="btn-main">Заказать</a></div></div></div>
+    
+    <div id="product-9" class="page-section"><button class="back-btn" onclick="openPage('shop')">← Назад</button><div class="article-container product-page-container"><div class="product-media"><div class="prod-slider-container"><div class="prod-slide-9 active"><img src="tovar9.jpg"></div><div class="prod-slide-9"><video controls playsinline src="video9.mp4"></video></div></div><button class="slider-btn prev-btn" onclick="changeProd9Slide(-1)">&#10094;</button><button class="slider-btn next-btn" onclick="changeProd9Slide(1)">&#10095;</button></div><div class="product-details"><h1>Презентационный блокнот</h1><div class="product-price">1500 ₽</div><a href="https://t.me/TanushkaPups?text=Хочу заказать" class="btn-main">Заказать</a></div></div></div>
 
-    <!-- ТОВАР 2 -->
-    <div id="product-2" class="page-section">
-        <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
-        <div class="article-container product-page-container">
-            <div class="product-media">
-                <div class="prod-slider-container">
-                    <div class="prod-slide-2 active"><img src="tovar2.jpg" alt="Книга Ароматов"></div>
-                    <div class="prod-slide-2"><video controls playsinline src="video2.mp4"></video></div>
-                </div>
-                <button class="slider-btn prev-btn" onclick="changeProd2Slide(-1)">&#10094;</button>
-                <button class="slider-btn next-btn" onclick="changeProd2Slide(1)">&#10095;</button>
-            </div>
-            <div class="product-details">
-                <h1>Книга Ароматов</h1>
-                <p>Книга ароматов компании Faberlic — ваш профессиональный инструмент.</p>
-                <div class="product-specs">
-                    <strong>Характеристики:</strong>
-                    <ul><li>Размер: А5 (удобный формат)</li><li>Обложка: Гибкая, долговечная</li></ul>
-                </div>
-                <div class="product-price">1300 ₽</div>
-                <a href="https://t.me/TanushkaPups?text=Хочу заказать Книгу Ароматов" target="_blank" class="btn-main">Заказать в Telegram</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ТОВАР 3 -->
-    <div id="product-3" class="page-section">
-        <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
-        <div class="article-container product-page-container">
-            <div class="product-media">
-                <div class="prod-slider-container">
-                    <div class="prod-slide-3 active"><img src="tovar3.jpg" alt="Аромавизитница фото 1"></div>
-                    <div class="prod-slide-3"><img src="tovar3_2.jpg" alt="Аромавизитница фото 2"></div>
-                    <div class="prod-slide-3"><video controls playsinline src="video3.mp4"></video></div>
-                </div>
-                <button class="slider-btn prev-btn" onclick="changeProd3Slide(-1)">&#10094;</button>
-                <button class="slider-btn next-btn" onclick="changeProd3Slide(1)">&#10095;</button>
-            </div>
-            <div class="product-details">
-                <h1>Аромавизитница</h1>
-                <p>Элегантная аромавизитница с обложкой ручной работы.</p>
-                <div class="product-specs">
-                    <strong>Характеристики:</strong>
-                    <ul>
-                        <li>Вместимость: Более 200 аромавизиток</li>
-                        <li>Конструкция: Мягкая обложка с кольцевым механизмом</li>
-                        <li>Страница: Вмещает 4 визитки</li>
-                    </ul>
-                </div>
-                <div class="product-price">2000 ₽</div>
-                <a href="https://t.me/TanushkaPups?text=Хочу заказать Аромавизитницу" target="_blank" class="btn-main">Заказать в Telegram</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ТОВАР 4 -->
-    <div id="product-4" class="page-section">
-        <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
-        <div class="article-container product-page-container">
-            <div class="product-media">
-                <div class="prod-slider-container">
-                    <div class="prod-slide-4 active"><img src="tovar4.jpg" alt="Визитки 1"></div>
-                    <div class="prod-slide-4"><img src="tovar4_2.jpg" alt="Визитки 2"></div>
-                </div>
-                <button class="slider-btn prev-btn" onclick="changeProd4Slide(-1)">&#10094;</button>
-                <button class="slider-btn next-btn" onclick="changeProd4Slide(1)">&#10095;</button>
-            </div>
-            <div class="product-details">
-                <h1>Аромавизитки (Набор)</h1>
-                <p>Аромавизитки без обложки — идеальный вариант пополнения запасов.</p>
-                <div class="product-specs">
-                    <strong>Характеристики:</strong>
-                    <ul>
-                        <li>Количество: Более 200 шт. в наборе</li>
-                        <li>Бумага: Мелованная глянцевая, двухсторонняя, 300 г/м²</li>
-                    </ul>
-                </div>
-                <div class="product-price">1500 ₽</div>
-                <a href="https://t.me/TanushkaPups?text=Хочу заказать Аромавизитки" target="_blank" class="btn-main">Заказать в Telegram</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ТОВАР 5 -->
-    <div id="product-5" class="page-section">
-        <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
-        <div class="article-container product-page-container">
-            <div class="product-media">
-                <div class="prod-slider-container">
-                    <div class="prod-slide-5 active"><img src="tovar5.jpg" alt="Планер"></div>
-                    <div class="prod-slide-5"><video controls playsinline src="video5.mp4"></video></div>
-                </div>
-                <button class="slider-btn prev-btn" onclick="changeProd5Slide(-1)">&#10094;</button>
-                <button class="slider-btn next-btn" onclick="changeProd5Slide(1)">&#10095;</button>
-            </div>
-            <div class="product-details">
-                <h1>Эксклюзивный планер</h1>
-                <p>Годовой цветной планер поможет вам распределить все планы грамотно!</p>
-                <div class="product-specs">
-                    <strong>Характеристики:</strong>
-                    <ul>
-                        <li>Размер: А5</li>
-                        <li>Обложка: По вашему вкусу (выбирается индивидуально)</li>
-                    </ul>
-                </div>
-                <div class="product-price">4500 ₽</div>
-                <a href="https://t.me/TanushkaPups?text=Хочу заказать Эксклюзивный планер" target="_blank" class="btn-main">Заказать в Telegram</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ТОВАР 6 -->
-    <div id="product-6" class="page-section">
-        <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
-        <div class="article-container product-page-container">
-            <div class="product-media">
-                <div class="prod-slider-container">
-                    <div class="prod-slide-6 active" id="slide-6-color"><img src="tovar6_color.jpg" alt="Цветная"></div>
-                    <div class="prod-slide-6" id="slide-6-bw"><img src="tovar6_bw.jpg" alt="Черно-белая"></div>
-                    <div class="prod-slide-6" id="slide-6-video"><video controls playsinline src="video6.mp4"></video></div>
-                </div>
-                <div style="text-align: center; margin-top: 10px;">
-                    <button class="slider-btn prev-btn" style="position:relative; top:0; left:0; transform:none;" onclick="changeProd6Slide(-1)">&#10094;</button>
-                    <button class="slider-btn next-btn" style="position:relative; top:0; right:0; transform:none;" onclick="changeProd6Slide(1)">&#10095;</button>
-                </div>
-            </div>
-            <div class="product-details">
-                <h1>Книга заказов</h1>
-                <p>Удобная книга для ведения учета заказов клиентов.</p>
-                <div class="product-specs">
-                    <strong>Выберите вариант:</strong>
-                    <div class="variant-selector" style="margin-top: 10px;">
-                        <button class="variant-btn active" onclick="selectVariant('color')">Цветная</button>
-                        <button class="variant-btn" onclick="selectVariant('bw')">Черно-белая</button>
-                    </div>
-                </div>
-                <div class="product-price" id="price-6">600 ₽</div>
-                <a href="https://t.me/TanushkaPups?text=Хочу Книгу заказов (цвет)" target="_blank" class="btn-main" id="btn-6">Заказать (Цветную)</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ТОВАР 8 -->
-    <div id="product-8" class="page-section">
-        <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
-        <div class="article-container product-page-container">
-            <div class="product-media">
-                <div class="prod-slider-container">
-                    <div class="prod-slide-8 active"><img src="tovar8.png" alt="Памятка"></div>
-                    <div class="prod-slide-8"><video controls playsinline src="video8.mp4"></video></div>
-                </div>
-                <button class="slider-btn prev-btn" onclick="changeProd8Slide(-1)">&#10094;</button>
-                <button class="slider-btn next-btn" onclick="changeProd8Slide(1)">&#10095;</button>
-            </div>
-            <div class="product-details">
-                <h1>Памятка ЭкоСтрана</h1>
-                <p>Памятка для пунктов — это поддержка и помощь в сборе правильного пластика на переработку.</p>
-                <div class="product-specs">
-                    <strong>Характеристики:</strong>
-                    <ul>
-                        <li>Формат: А4</li>
-                        <li>Покрытие: Ламинация (долговечная и износостойкая)</li>
-                    </ul>
-                </div>
-                <div class="product-price">600 ₽</div>
-                <a href="https://t.me/TanushkaPups?text=Хочу заказать Памятку ЭкоСтрана" target="_blank" class="btn-main">Заказать в Telegram</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ТОВАР 9 -->
-    <div id="product-9" class="page-section">
-        <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
-        <div class="article-container product-page-container">
-            <div class="product-media">
-                <div class="prod-slider-container">
-                    <div class="prod-slide-9 active"><img src="tovar9.jpg" alt="Блокнот"></div>
-                    <div class="prod-slide-9"><video controls playsinline src="video9.mp4"></video></div>
-                </div>
-                <button class="slider-btn prev-btn" onclick="changeProd9Slide(-1)">&#10094;</button>
-                <button class="slider-btn next-btn" onclick="changeProd9Slide(1)">&#10095;</button>
-            </div>
-            <div class="product-details">
-                <h1>Презентационный блокнот</h1>
-                <p>Идеальный инструмент для презентации бизнеса новичкам и партнерам.</p>
-                <div class="product-specs">
-                    <strong>Характеристики:</strong>
-                    <ul>
-                        <li>Размер: А5</li>
-                        <li>Крепление: Пружина</li>
-                    </ul>
-                </div>
-                <div class="product-price">1500 ₽</div>
-                <a href="https://t.me/TanushkaPups?text=Хочу Презентационный блокнот" target="_blank" class="btn-main">Заказать в Telegram</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- БЛОГИ -->
-    <div id="article-patches" class="page-section"><button class="back-btn" onclick="openPage('beauty')">← Вернуться в Блог</button><div class="article-container"><h1>ВСЕ, что нужно знать о патчах!</h1><img src="patches_1.jpg" class="article-img"><div class="article-text"><p><strong>Скажите мне сколько вы знаете видов патчей?</strong></p><p>До этого момента я знала только про гидрогелиевые патчи для глаз и пробовала для губ, чему была конечно очень удивлена! Но и куда же без смеха, ведь смотрелось это все очень забавно!</p><p>Так что сегодня мы рассмотрим с вами виды! Посмотрим на патчи необычной формы! Но не забывайте! Всегда проверяйте информацию сами и эффект на себе, ведь состояние кожи и реакция на компоненты у всех разное!</p><img src="patches_2.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">ПАТЧИ НА ВСЕ ЧАСТИ ТЕЛА!</h3><p>Ну и давайте начнем с нашего прекрасного личика! Тут у нас большое разнообразие!</p><img src="patches_3.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Голографические микроигольные патчи для глаз!</h3><p>Выглядят они очень эффектно! На просторах интернета их величают последним айфоном в сфере косметологии! Их микроиглы на 98,5% состоят из гиалуроновой кислоты. Проколы абсолютно безболезненны, ведь после вхождения в кожу иглы тают, что обеспечивает более глубокое проникновение активных компонентов.</p><p><strong>Ноооооо…</strong> Это безусловно очень красиво, но стоит ли они своих денег? Почитав отзывы и увидев результаты есть минусики! Во первых в живую это выглядит не так, как в рекламе! Из-за жесткой основы можно наложить так патч, что залом около глаза, не разгладится, а наоборот, станет более явным. Плюс из-за своей же основы кожа потеет.</p><img src="patches_4.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи альгинатные! Маска-патч или тканевые!</h3><p>Альгинатные маски как для всего лица, так и для век представляют собой порошочек, который разводят водичкой и через 20-30 минут после того, как масса застывает, смачиваем края и удаляем нашу масочку, после наносим кремушек.</p><p>Эффективность и результат при этом очень хорошие. Допустим если у вас темные круги от недосыпа то она прекрасно с этим справиться осветляя их.</p><img src="patches_5.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Гидрогелевые патчи</h3><p>Затрагивая гидрогелиевые патчи могу сказать, что использование их самое простое и не сильно затратное по времени. Но не забывайте есть патчи, с которыми можно ходить, а есть с которыми обязательно нужно лежать, чтобы не было анти эффекта!</p><p>Они прекрасно убирают припухлости и освежают кожу. Для меня это наиболее удобно и с моим вечным «я не успеваю» это прям прекрасное решение!</p><img src="patches_6.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Тающие патчи для носогубных складок</h3><p>Тающие — прозрачные пленки, пропитанные омолаживающими компонентами, и защитные — тканевые диски. Эффект от средства не очень длительный, но впечатляющий! Результат очень хорош, они и необычные и справляются со своей задачей! Попробовать на себе точно стоит!</p><img src="patches_7.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Гидрогелевый патч и скраб для губ</h3><p>Разделено на две секции в одной скраб, в другой непосредственно гидрогелиевый патч. Средство мягко, но эффективно скрабирует кожу. Вердикт большинства шикарный скраб, но многим не хочется лежать и ждать эффекта от патчей.</p><img src="patches_8.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Невидимые патчи для проблемной кожи</h3><p>Оперативно уменьшают и успокаивают высыпания. Наклеиваются непосредственно на воспаления. И что скажу на ночь использовать самое то! Я с какого то решила, что они убирают прыщики, хотя они наоборот помогают созреть им и быстрее тем самым избавиться от них!</p><img src="patches_9.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи для огрубевших локтей</h3><p>Вы скажете зачем патчи для локтей ведь есть кремушек? Я задалась тем же вопросом. Четырехлистные пластыри с пропитанной эссенцией сердцевиной всего за 15 минут осветлят и смягчят локти.</p><p>Но со своей задачей они справляются на 100%, единственное есть таки одно «но» - это сильная липкость на коже. Поэтому я бы лучше посоветовала прекрасный для этого Универсальный бальзам-концентрат L.OVE!</p><img src="patches_10.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи для подтяжки груди</h3><p>После похудения и беременности грудь теряет тонус и былой объем, в этом заявляют могут помочь специальные патчи. Ну а что же наши женщины думают по этому поводу? Честно? Все склоняются в сторону покупки крема!</p><img src="patches_11.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи моделирующие для живота и талии</h3><p>Давайте начнем с того, что никакие патчи или кремы не помогут вам скорректировать фигуру без специально подобранной физической нагрузки и правильного питания! Все запомнили? Теперь продолжим!</p><img src="patches_12.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи для ног или пластыри</h3><p>Ну и последнее что затронем это ножки. Девушки которые постоянно на каблуках вы мои героини! В таких случаях мне и помогают кремы охлаждающие, а вот про патчи я не слышала и стало очень интересно! Но отзывы положительные!</p><p>Так что я оставила вам пищу для размышления! Как думаете что это?</p></div><div style="text-align: center; margin-top: 40px;"><a href="https://t.me/TanushkaPups?text=Здравствуйте! Посоветуйте патчи" target="_blank" class="btn-order">Выбрать патчи</a></div></div></div>
+    <!-- БЛОГИ (ВСЕ ПОЛНЫЕ) -->
+    <div id="article-patches" class="page-section"><button class="back-btn" onclick="openPage('beauty')">← Блог</button><div class="article-container"><h1>ВСЕ о патчах</h1><img src="patches_1.jpg" class="article-img"><div class="article-text"><p><strong>Скажите мне сколько вы знаете видов патчей?</strong></p><p>До этого момента я знала только про гидрогелиевые патчи для глаз и пробовала для губ, чему была конечно очень удивлена! Но и куда же без смеха, ведь смотрелось это все очень забавно!</p><p>Так что сегодня мы рассмотрим с вами виды! Посмотрим на патчи необычной формы! Но не забывайте! Всегда проверяйте информацию сами и эффект на себе, ведь состояние кожи и реакция на компоненты у всех разное!</p><img src="patches_2.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">ПАТЧИ НА ВСЕ ЧАСТИ ТЕЛА!</h3><p>Ну и давайте начнем с нашего прекрасного личика! Тут у нас большое разнообразие!</p><img src="patches_3.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Голографические микроигольные патчи для глаз!</h3><p>Выглядят они очень эффектно! На просторах интернета их величают последним айфоном в сфере косметологии! Их микроиглы на 98,5% состоят из гиалуроновой кислоты. Проколы абсолютно безболезненны, ведь после вхождения в кожу иглы тают, что обеспечивает более глубокое проникновение активных компонентов.</p><p><strong>Ноооооо…</strong> Это безусловно очень красиво, но стоит ли они своих денег? Почитав отзывы и увидев результаты есть минусики! Во первых в живую это выглядит не так, как в рекламе! Из-за жесткой основы можно наложить так патч, что залом около глаза, не разгладится, а наоборот, станет более явным. Плюс из-за своей же основы кожа потеет.</p><img src="patches_4.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи альгинатные! Маска-патч или тканевые!</h3><p>Альгинатные маски как для всего лица, так и для век представляют собой порошочек, который разводят водичкой и через 20-30 минут после того, как масса застывает, смачиваем края и удаляем нашу масочку, после наносим кремушек.</p><p>Эффективность и результат при этом очень хорошие. Допустим если у вас темные круги от недосыпа то она прекрасно с этим справиться осветляя их.</p><img src="patches_5.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Гидрогелевые патчи</h3><p>Затрагивая гидрогелиевые патчи могу сказать, что использование их самое простое и не сильно затратное по времени. Но не забывайте есть патчи, с которыми можно ходить, а есть с которыми обязательно нужно лежать, чтобы не было анти эффекта!</p><p>Они прекрасно убирают припухлости и освежают кожу. Для меня это наиболее удобно и с моим вечным «я не успеваю» это прям прекрасное решение!</p><img src="patches_6.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Тающие патчи для носогубных складок</h3><p>Тающие — прозрачные пленки, пропитанные омолаживающими компонентами, и защитные — тканевые диски. Эффект от средства не очень длительный, но впечатляющий! Результат очень хорош, они и необычные и справляются со своей задачей! Попробовать на себе точно стоит!</p><img src="patches_7.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Гидрогелевый патч и скраб для губ</h3><p>Разделено на две секции в одной скраб, в другой непосредственно гидрогелиевый патч. Средство мягко, но эффективно скрабирует кожу. Вердикт большинства шикарный скраб, но многим не хочется лежать и ждать эффекта от патчей.</p><img src="patches_8.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Невидимые патчи для проблемной кожи</h3><p>Оперативно уменьшают и успокаивают высыпания. Наклеиваются непосредственно на воспаления. И что скажу на ночь использовать самое то! Я с какого то решила, что они убирают прыщики, хотя они наоборот помогают созреть им и быстрее тем самым избавиться от них!</p><img src="patches_9.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи для огрубевших локтей</h3><p>Вы скажете зачем патчи для локтей ведь есть кремушек? Я задалась тем же вопросом. Четырехлистные пластыри с пропитанной эссенцией сердцевиной всего за 15 минут осветлят и смягчят локти.</p><p>Но со своей задачей они справляются на 100%, единственное есть таки одно «но» - это сильная липкость на коже. Поэтому я бы лучше посоветовала прекрасный для этого Универсальный бальзам-концентрат L.OVE!</p><img src="patches_10.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи для подтяжки груди</h3><p>После похудения и беременности грудь теряет тонус и былой объем, в этом заявляют могут помочь специальные патчи. Ну а что же наши женщины думают по этому поводу? Честно? Все склоняются в сторону покупки крема!</p><img src="patches_11.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи моделирующие для живота и талии</h3><p>Давайте начнем с того, что никакие патчи или кремы не помогут вам скорректировать фигуру без специально подобранной физической нагрузки и правильного питания! Все запомнили? Теперь продолжим!</p><img src="patches_12.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи для ног или пластыри</h3><p>Ну и последнее что затронем это ножки. Девушки которые постоянно на каблуках вы мои героини! В таких случаях мне и помогают кремы охлаждающие, а вот про патчи я не слышала и стало очень интересно! Но отзывы положительные!</p><p>Так что я оставила вам пищу для размышления! Как думаете что это?</p></div><div style="text-align: center; margin-top: 40px;"><a href="https://t.me/TanushkaPups?text=Здравствуйте! Посоветуйте патчи" target="_blank" class="btn-order">Выбрать патчи</a></div></div></div>
     
     <!-- 2. ПАРФЮМ (ПОЛНАЯ СТАТЬЯ) -->
     <div id="article-perfume" class="page-section"><button class="back-btn" onclick="openPage('beauty')">← Вернуться в Блог</button><div class="article-container"><h1>Волшебство парфюма</h1><img src="perfume_article.jpg" class="article-img"><div class="article-text"><h3 style="color: var(--primary);">ВОЛШЕБСТВО ПЕРВОГО ПАРФЮМА В ИСТОРИИ!</h3><p>Друзья, сегодня хочу поделиться с вами интересной историей о самом первом парфюме, который стал символом роскоши и изысканности. Ведь именно с него началась целая эпоха ароматов, которая до сих пор пленяет и восхищает нас.</p><p>Думаю мы эту тему еще изучим! Углубимся! Потому что многие источники говорят разное! А пока вот, что мне удалось выяснить!</p><p>История первого парфюма уходит своими корнями в древние времена, в глубь древних цивилизаций. Именно в Египте восемь тысяч лет назад был открыт тайный рецепт первого парфюма. Этот аромат получил название "Киопс" и представлял собой смесь благовоний, масел и цветов. 🌸</p><p>Считается, что создателем первого парфюма была сама королева Клеопатра. Она обладала не только красотой и умом, но и уникальным обонятельным восприятием. С помощью этого парфюма она могла подчеркнуть свою индивидуальность, создать атмосферу загадочности и притягательности. Кажется, что именно благодаря этому парфюму она покорила своими ароматными тайнами множество сердец. ❤️</p><p>С тех пор парфюмерия претерпела огромные изменения и развилась в настоящее искусство. Ароматы стали более сложными и разнообразными, они смогли удивить своей элегантностью и изысканностью. Сейчас парфюм – это не только средство для создания атмосферы, но и настоящая работа искусства, которая может выразить наши чувства и эмоции.</p><p>Каждый аромат скрывает в себе множество историй и эмоций, он способен трансформировать образ и сделать его неповторимым. Мы можем выбрать парфюм, который будет отражать нашу личность, настроение или подчеркивать наш стиль. 🌺</p><h3 style="color: var(--primary); margin-top: 30px;">А вы знаете какой первый аромат был в компании Faberlic? Не знаете?</h3><p>Первыми ароматами можно считать коллекцию «Собрание парфюмерии», выпущенную ещё под брендом «Русская линия» в 1999 году, это 4 аромата во сплешевых флаконах объёмом 50 мл в концентрации «духи», упаковка ароматов напоминала книгу.</p><p>Они назывались «Идеал», «Вечерние», «Каприз» и «Особые».</p><p>И я нашла как они выглядели! Будто окунулись в воспоминания! И это так! Потому что ароматы могут переносить нас в прошлое! Показать будущее! И насладиться настоящим!</p><p>Кстати в настоящий момент ассортимент парфюмерной продукции компании Faberlic постоянно пополняется и составляет более 90 ароматов! Вот так!</p></div><div style="text-align: center; margin-top: 40px;"><a href="https://t.me/TanushkaPups?text=Здравствуйте! Хочу подобрать аромат Faberlic" target="_blank" class="btn-order">Подобрать аромат</a></div></div></div>
