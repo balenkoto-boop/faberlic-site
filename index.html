@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faberlic Раменское | Регистрация и Каталог | Татьяна</title>
-    <meta name="description" content="Официальный партнер Faberlic в г. Раменское. Оформление скидки 20%, актуальный каталог и акции. Авторские товары для бизнеса: планеры, блокноты, аромавизитницы. Полезный блог о красоте.">
     
     <style>
         /* --- 1. ОСНОВНЫЕ СТИЛИ --- */
@@ -12,9 +11,9 @@
             --primary: #d63384; 
             --primary-hover: #b02a6c;
             --dark: #2c3e50;
-            --glass: rgba(255, 255, 255, 0.9);
-            --glass-border: 1px solid rgba(255, 255, 255, 0.6);
-            --shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
+            --glass: rgba(255, 255, 255, 0.95);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.8);
+            --shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
         }
 
         html { height: 100%; }
@@ -28,39 +27,21 @@
             min-height: 100%;
             position: relative;
             overflow-x: hidden;
-            
-            /* ФОН: НЕБО (Зафиксировано) */
             background: linear-gradient(to bottom, #87CEEB 0%, #B0E0E6 40%, #ffffff 80%);
             background-attachment: fixed;
             background-size: cover;
         }
 
-        /* --- 2. ДЕКОРАЦИИ --- */
-        /* Холмы внизу всей страницы */
-        .landscape-wrapper {
-            position: absolute; 
-            bottom: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 800px; 
+        /* --- 2. ДЕКОРАЦИИ (ФОН) --- */
+        .landscape-wrapper, .clouds-container, .petal {
             z-index: -1; 
-            pointer-events: none;
-        }
-        .landscape-image {
-            width: 100%; 
-            height: 100%; 
-            background-image: url('sakura_hills.png'); 
-            background-position: bottom center; 
-            background-size: cover; 
-            background-repeat: no-repeat;
-            /* Маска для плавного перехода неба в холмы */
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 10%, rgba(0,0,0,0.5) 40%, black 100%);
-            mask-image: linear-gradient(to bottom, transparent 0%, transparent 10%, rgba(0,0,0,0.5) 40%, black 100%);
-            opacity: 0.95;
+            pointer-events: none; 
         }
 
-        /* Облака */
-        .clouds-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -2; }
+        .landscape-wrapper { position: absolute; bottom: 0; left: 0; width: 100%; height: 800px; }
+        .landscape-image { width: 100%; height: 100%; background-image: url('sakura_hills.png'); background-position: bottom center; background-size: cover; background-repeat: no-repeat; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 10%, rgba(0,0,0,0.5) 40%, black 100%); mask-image: linear-gradient(to bottom, transparent 0%, transparent 10%, rgba(0,0,0,0.5) 40%, black 100%); opacity: 0.95; }
+
+        .clouds-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
         .cloud { position: absolute; background: #fff; border-radius: 100px; filter: blur(20px); opacity: 0.6; animation: floatCloud linear infinite; }
         .cloud::after, .cloud::before { content: ''; position: absolute; background: inherit; border-radius: 50%; }
         .cloud-1 { width: 300px; height: 100px; top: 5%; left: -300px; animation-duration: 60s; }
@@ -70,12 +51,23 @@
         .cloud-3 { width: 200px; height: 80px; top: 10%; left: -200px; animation-duration: 45s; animation-delay: 5s; opacity: 0.4; }
         @keyframes floatCloud { 0% { left: -400px; } 100% { left: 100%; } }
 
-        /* Лепестки */
-        .petal { position: fixed; top: -10%; z-index: 9999; user-select: none; pointer-events: none; background: radial-gradient(circle at 30% 30%, #ffc0cb, #ffb7c5); border-radius: 10% 80% 0% 80%; animation-name: falling; animation-timing-function: ease-in-out; animation-iteration-count: infinite; box-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+        .petal { position: fixed; top: -10%; background: radial-gradient(circle at 30% 30%, #ffc0cb, #ffb7c5); border-radius: 10% 80% 0% 80%; animation-name: falling; animation-timing-function: ease-in-out; animation-iteration-count: infinite; box-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
         @keyframes falling { 0% { transform: translate(0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg); opacity: 0; } 10% { opacity: 0.9; } 50% { transform: translate(50px, 50vh) rotateX(180deg) rotateY(180deg) rotateZ(90deg); opacity: 0.8; } 100% { transform: translate(-20px, 110vh) rotateX(360deg) rotateY(360deg) rotateZ(180deg); opacity: 0; } }
 
         /* --- 3. ШАПКА --- */
-        header { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); padding: 10px 40px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); border-bottom: var(--glass-border); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 10px 40px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            border-bottom: var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
         .logo-wrapper { display: flex; align-items: center; cursor: pointer; }
         .monogram { position: relative; width: 50px; height: 55px; margin-right: 10px; }
         .letter-f { font-family: 'Times New Roman', serif; font-size: 50px; font-weight: bold; color: var(--dark); position: absolute; top: -5px; left: 0; line-height: 1; z-index: 2; }
@@ -87,14 +79,31 @@
         nav button { background: none; border: none; font-size: 15px; font-weight: 600; cursor: pointer; color: var(--dark); padding: 8px 12px; transition: all 0.3s; border-radius: 20px; }
         nav button:hover, nav button.active { background-color: var(--primary); color: white; box-shadow: 0 4px 10px rgba(214, 51, 132, 0.3); }
 
-        /* --- 4. КОНТЕНТ (ОБЩИЕ СТИЛИ) --- */
-        .page-section { display: none; padding: 40px 20px; max-width: 1200px; margin: 0 auto; animation: fadeIn 0.5s; padding-bottom: 300px; }
+        /* --- 4. КОНТЕНТ --- */
+        .page-section { 
+            display: none; 
+            padding: 40px 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            animation: fadeIn 0.5s; 
+            padding-bottom: 300px;
+            position: relative; 
+            z-index: 10; 
+        }
         .page-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        .card, .info-card, .article-container { background: var(--glass); backdrop-filter: blur(8px); border: var(--glass-border); border-radius: 20px; box-shadow: var(--shadow); padding: 30px; margin-bottom: 20px; }
+        .card, .info-card, .article-container { 
+            background: var(--glass); 
+            backdrop-filter: blur(8px); 
+            border: var(--glass-border); 
+            border-radius: 20px; 
+            box-shadow: var(--shadow); 
+            padding: 30px; 
+            margin-bottom: 20px; 
+        }
 
-        /* --- 5. ГЛАВНАЯ (HERO, SLIDER, PROJECTS) --- */
+        /* --- 5. ГЛАВНАЯ --- */
         .countdown-container { background: var(--glass); backdrop-filter: blur(8px); border: var(--glass-border); border-radius: 20px; box-shadow: var(--shadow); padding: 20px; margin-bottom: 30px; text-align: center; }
         .countdown-title { color: var(--dark); margin-bottom: 15px; font-size: 1.5rem; font-weight: bold; }
         .timer-wrapper { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
@@ -121,7 +130,13 @@
         .slider-track { display: flex; transition: transform 0.5s ease-in-out; }
         .promo-slide { min-width: 33.333%; padding: 0 10px; box-sizing: border-box; }
         .promo-slide img { width: 100%; aspect-ratio: 1/1; object-fit: contain; border-radius: 20px; background: #fff; }
-        .slider-btn { position: absolute; top: 55%; transform: translateY(-50%); background: white; color: var(--primary); border: 2px solid var(--primary); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 20px; }
+        .slider-btn { 
+            position: absolute; top: 55%; transform: translateY(-50%); 
+            background: white; color: var(--primary); border: 2px solid var(--primary); 
+            width: 40px; height: 40px; border-radius: 50%; cursor: pointer; 
+            z-index: 10; font-size: 20px; 
+            display: flex; align-items: center; justify-content: center;
+        }
         .prev-btn { left: 10px; } .next-btn { right: 10px; }
         
         .sale-banner { display: block; margin: 0 auto 40px auto; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s; }
@@ -146,17 +161,8 @@
         /* --- 7. ПВЗ --- */
         .pvz-promo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 30px; }
         .pvz-promo-card { background: var(--glass); padding: 20px; text-align: left; border-radius: 20px; display: flex; flex-direction: column; }
-        
-        .pvz-promo-card img { 
-            width: 100%; 
-            height: 250px; 
-            object-fit: contain; 
-            border-radius: 20px; /* ЗАКРУГЛЕННЫЕ УГЛЫ */
-            margin-bottom: 20px; 
-            background: rgba(255,255,255,0.5); 
-        }
+        .pvz-promo-card img { width: 100%; height: 250px; object-fit: contain; border-radius: 20px; margin-bottom: 20px; background: rgba(255,255,255,0.5); }
         .pvz-promo-card h4 { font-size: 1.3rem; margin-bottom: 10px; color: var(--primary); }
-        
         .pvz-header-block { display: flex; flex-wrap: wrap; gap: 20px; }
         .pvz-text { flex: 1; min-width: 300px; }
         .pvz-map { flex: 1; min-width: 300px; height: 300px; border-radius: 20px; overflow: hidden; border: 1px solid #ccc; }
@@ -167,7 +173,6 @@
         .product-media { flex: 1; min-width: 300px; position: relative; }
         .prod-slider-container { width: 100%; height: 400px; position: relative; background: rgba(255,255,255,0.5); border-radius: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         
-        /* Слайды */
         .prod-slide, .prod-slide-2, .prod-slide-3, .prod-slide-4, .prod-slide-5, .prod-slide-6, .prod-slide-8, .prod-slide-9 { display: none; width: 100%; height: 100%; }
         .prod-slide.active, .prod-slide-2.active, .prod-slide-3.active, .prod-slide-4.active, .prod-slide-5.active, .prod-slide-6.active, .prod-slide-8.active, .prod-slide-9.active { display: flex; justify-content: center; align-items: center; }
         
@@ -211,8 +216,13 @@
             .hero-text h1 { font-size: 2rem; }
             .promo-slide { min-width: 100%; }
             .projects-grid-2 { grid-template-columns: 1fr; }
-            .hero-image { height: 300px; } 
+            .hero-image { height: 350px; margin-bottom: 20px; } /* Исправлена высота картинки на телефоне */
             .contacts-wrapper { grid-template-columns: 1fr; }
+            
+            /* Смещение стрелок, чтобы не закрывали фото */
+            .slider-btn { top: 50%; width: 35px; height: 35px; font-size: 18px; }
+            .prev-btn { left: 5px; }
+            .next-btn { right: 5px; }
         }
     </style>
 </head>
@@ -263,10 +273,9 @@
                 </div>
             </div>
             
-            <!-- СМЕНА КАРТИНОК -->
+            <!-- Контейнер для смены картинок -->
             <div class="hero-image">
                 <img src="catalog.jpg" class="hero-slide active" alt="Каталог 1">
-                <!-- ВНИМАНИЕ: ЗДЕСЬ .PNG -->
                 <img src="catalog2.png" class="hero-slide" alt="Каталог 2">
             </div>
         </div>
@@ -292,7 +301,6 @@
             <img src="sale_banner.jpg" alt="Распродажа" onerror="this.src='https://via.placeholder.com/1200x300?text=РАСПРОДАЖА+ЖМИ'">
         </a>
 
-        <!-- Блок 4: Проекты -->
         <div class="projects-section">
             <h2>Наши Проекты</h2>
             <a href="https://drug-iz-priuta.ru/" target="_blank" class="project-link"><img src="project_shelter.jpg" onerror="this.src='https://via.placeholder.com/1200x400?text=Друг+из+приюта'"></a>
@@ -400,9 +408,8 @@
         </div>
     </div>
 
-    <!-- --- СТРАНИЦЫ ТОВАРОВ --- -->
+    <!-- СТРАНИЦЫ ТОВАРОВ (ВСЕ ВИДЕО video1.mp4 - МАЛЕНЬКИМИ БУКВАМИ) -->
     
-    <!-- ТОВАР 1: ПАРНЫЕ БЛОКНОТЫ -->
     <div id="product-1" class="page-section">
         <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
         <div class="article-container product-page-container">
@@ -410,7 +417,8 @@
                 <div class="prod-slider-container">
                     <div class="prod-slide active"><img src="tovar1.jpg" alt="Блокнот фото 1"></div>
                     <div class="prod-slide"><img src="tovar1_2.jpg" alt="Блокнот фото 2"></div>
-                    <div class="prod-slide"><video controls src="video1.mp4"></video></div>
+                    <!-- ИСПРАВЛЕНО: video1.mp4 и playsinline -->
+                    <div class="prod-slide"><video controls playsinline src="video1.mp4"></video></div>
                 </div>
                 <button class="slider-btn prev-btn" onclick="changeProd1Slide(-1)">&#10094;</button>
                 <button class="slider-btn next-btn" onclick="changeProd1Slide(1)">&#10095;</button>
@@ -421,7 +429,7 @@
                 <p>Эти парные блокноты созданы для того, чтобы хранить ваши общие планы, мечты и теплые слова. Символ вашей связи, который всегда под рукой. Подарите половинку тому, кто дорог, и создавайте свою историю вместе.</p>
                 <div class="product-specs">
                     <strong>Характеристики:</strong>
-                    <ul><li>Размер: 10 х 15 см (удобно брать с собой)</li><li>Объем: 80 страниц для ваших идей</li><li>Обложка: Плотная, приятная на ощупь</li></ul>
+                    <ul><li>Размер: 10 х 15 см</li><li>Объем: 80 страниц</li><li>Обложка: Плотная, приятная на ощупь</li></ul>
                 </div>
                 <div class="product-price">600 ₽</div>
                 <a href="https://t.me/TanushkaPups?text=Здравствуйте! Хочу заказать Парные блокноты" target="_blank" class="btn-main">Заказать в Telegram</a>
@@ -429,14 +437,14 @@
         </div>
     </div>
 
-    <!-- ТОВАР 2: КНИГА АРОМАТОВ -->
+    <!-- ТОВАР 2 -->
     <div id="product-2" class="page-section">
         <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
         <div class="article-container product-page-container">
             <div class="product-media">
                 <div class="prod-slider-container">
                     <div class="prod-slide-2 active"><img src="tovar2.jpg" alt="Книга Ароматов"></div>
-                    <div class="prod-slide-2"><video controls src="video2.MOV"></video></div>
+                    <div class="prod-slide-2"><video controls playsinline src="video2.mp4"></video></div>
                 </div>
                 <button class="slider-btn prev-btn" onclick="changeProd2Slide(-1)">&#10094;</button>
                 <button class="slider-btn next-btn" onclick="changeProd2Slide(1)">&#10095;</button>
@@ -444,9 +452,6 @@
             <div class="product-details">
                 <h1>Книга Ароматов</h1>
                 <p>Книга ароматов компании Faberlic — ваш профессиональный инструмент.</p>
-                <p>Она включает в себя женские и мужские ароматы, распределенные по основным нотам. Так вы сможете сразу подсказать клиенту, из каких ароматов ему стоит выбирать по его вкусу!</p>
-                <p>Плюс в карточке товара уже все необходимые данные: какой объем, направление и ольфакторная пирамида!</p>
-                <p><em>Будьте уверенными и экспертными в своем деле! А наши помощники вам в этом помогут!</em></p>
                 <div class="product-specs">
                     <strong>Характеристики:</strong>
                     <ul><li>Размер: А5 (удобный формат)</li><li>Обложка: Гибкая, долговечная</li></ul>
@@ -457,7 +462,7 @@
         </div>
     </div>
 
-    <!-- ТОВАР 3: АРОМАВИЗИТНИЦА -->
+    <!-- ТОВАР 3 -->
     <div id="product-3" class="page-section">
         <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
         <div class="article-container product-page-container">
@@ -465,20 +470,19 @@
                 <div class="prod-slider-container">
                     <div class="prod-slide-3 active"><img src="tovar3.jpg" alt="Аромавизитница фото 1"></div>
                     <div class="prod-slide-3"><img src="tovar3_2.jpg" alt="Аромавизитница фото 2"></div>
-                    <div class="prod-slide-3"><video controls src="video3.MOV"></video></div>
+                    <div class="prod-slide-3"><video controls playsinline src="video3.mp4"></video></div>
                 </div>
                 <button class="slider-btn prev-btn" onclick="changeProd3Slide(-1)">&#10094;</button>
                 <button class="slider-btn next-btn" onclick="changeProd3Slide(1)">&#10095;</button>
             </div>
             <div class="product-details">
                 <h1>Аромавизитница</h1>
-                <p>Элегантная аромавизитница с обложкой ручной работы. Незаменимый аксессуар для презентации парфюма.</p>
-                <p>Включает аромавизитки с подробным описанием аромата, а также сравнение с нотами известных люксовых брендов. Помогает клиенту "услышать" аромат и сделать выбор быстрее.</p>
+                <p>Элегантная аромавизитница с обложкой ручной работы.</p>
                 <div class="product-specs">
                     <strong>Характеристики:</strong>
                     <ul>
                         <li>Вместимость: Более 200 аромавизиток</li>
-                        <li>Конструкция: Мягкая обложка с кольцевым механизмом (можно добавлять листы)</li>
+                        <li>Конструкция: Мягкая обложка с кольцевым механизмом</li>
                         <li>Страница: Вмещает 4 визитки</li>
                     </ul>
                 </div>
@@ -488,7 +492,7 @@
         </div>
     </div>
 
-    <!-- ТОВАР 4: АРОМАВИЗИТКИ -->
+    <!-- ТОВАР 4 -->
     <div id="product-4" class="page-section">
         <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
         <div class="article-container product-page-container">
@@ -502,13 +506,12 @@
             </div>
             <div class="product-details">
                 <h1>Аромавизитки (Набор)</h1>
-                <p>Аромавизитки без обложки — идеальный вариант пополнения запасов, если у вас уже есть наша фирменная папка или визитница.</p>
+                <p>Аромавизитки без обложки — идеальный вариант пополнения запасов.</p>
                 <div class="product-specs">
                     <strong>Характеристики:</strong>
                     <ul>
                         <li>Количество: Более 200 шт. в наборе</li>
-                        <li>Бумага: Мелованная глянцевая, двухсторонняя</li>
-                        <li>Плотность: 300 г/м² (плотная, качественная)</li>
+                        <li>Бумага: Мелованная глянцевая, двухсторонняя, 300 г/м²</li>
                     </ul>
                 </div>
                 <div class="product-price">1500 ₽</div>
@@ -517,38 +520,22 @@
         </div>
     </div>
 
-    <!-- ТОВАР 5: ЭКСКЛЮЗИВНЫЙ ПЛАНЕР -->
+    <!-- ТОВАР 5 -->
     <div id="product-5" class="page-section">
         <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
         <div class="article-container product-page-container">
             <div class="product-media">
                 <div class="prod-slider-container">
                     <div class="prod-slide-5 active"><img src="tovar5.jpg" alt="Планер"></div>
-                    <div class="prod-slide-5"><video controls src="video5.MP4"></video></div>
+                    <div class="prod-slide-5"><video controls playsinline src="video5.mp4"></video></div>
                 </div>
                 <button class="slider-btn prev-btn" onclick="changeProd5Slide(-1)">&#10094;</button>
                 <button class="slider-btn next-btn" onclick="changeProd5Slide(1)">&#10095;</button>
             </div>
             <div class="product-details">
                 <h1>Эксклюзивный планер</h1>
-                <p>Годовой цветной планер поможет вам распределить все планы грамотно и выявить четкие потребности и цели! Благодаря ему вы сможете прописать путь к вашей мечте!</p>
-                <p>Планер достаточно большой (более 160 стр) и включает в себя массу полезных разделов:</p>
+                <p>Годовой цветной планер поможет вам распределить все планы грамотно!</p>
                 <div class="product-specs">
-                    <strong>Разделы планера:</strong>
-                    <ul class="checklist">
-                        <li>Информация о компании (знакомство, награды, маркетинг план, возможности)</li>
-                        <li>Колесо баланса</li>
-                        <li>Моя ЦА (целевая аудитория)</li>
-                        <li>Бизнес (клиенты, сопровождение, встречи)</li>
-                        <li>Бонусные карты</li>
-                        <li>Обучение, мысли и идеи</li>
-                        <li>Важные даты и Задачи (на каждый месяц)</li>
-                        <li>Бюджет (распределение дохода)</li>
-                        <li>Контент план</li>
-                        <li>График периодов на 2026 год</li>
-                        <li>Каталоги (19 периодов с целью и отчетом)</li>
-                    </ul>
-                    <hr style="margin: 15px 0; border: 0; border-top: 1px solid #ccc;">
                     <strong>Характеристики:</strong>
                     <ul>
                         <li>Размер: А5</li>
@@ -561,7 +548,7 @@
         </div>
     </div>
 
-    <!-- ТОВАР 6: КНИГА ЗАКАЗОВ (ОБЪЕДИНЕННАЯ) -->
+    <!-- ТОВАР 6 -->
     <div id="product-6" class="page-section">
         <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
         <div class="article-container product-page-container">
@@ -569,7 +556,7 @@
                 <div class="prod-slider-container">
                     <div class="prod-slide-6 active" id="slide-6-color"><img src="tovar6_color.jpg" alt="Цветная"></div>
                     <div class="prod-slide-6" id="slide-6-bw"><img src="tovar6_bw.jpg" alt="Черно-белая"></div>
-                    <div class="prod-slide-6" id="slide-6-video"><video controls src="video6.MOV"></video></div>
+                    <div class="prod-slide-6" id="slide-6-video"><video controls playsinline src="video6.mp4"></video></div>
                 </div>
                 <div style="text-align: center; margin-top: 10px;">
                     <button class="slider-btn prev-btn" style="position:relative; top:0; left:0; transform:none;" onclick="changeProd6Slide(-1)">&#10094;</button>
@@ -578,7 +565,7 @@
             </div>
             <div class="product-details">
                 <h1>Книга заказов</h1>
-                <p>Удобная книга для ведения учета заказов клиентов. Помогает держать все под контролем и не упустить ни одной детали.</p>
+                <p>Удобная книга для ведения учета заказов клиентов.</p>
                 <div class="product-specs">
                     <strong>Выберите вариант:</strong>
                     <div class="variant-selector" style="margin-top: 10px;">
@@ -592,22 +579,21 @@
         </div>
     </div>
 
-    <!-- ТОВАР 8: ПАМЯТКА (PNG, MOV) -->
+    <!-- ТОВАР 8 -->
     <div id="product-8" class="page-section">
         <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
         <div class="article-container product-page-container">
             <div class="product-media">
                 <div class="prod-slider-container">
                     <div class="prod-slide-8 active"><img src="tovar8.png" alt="Памятка"></div>
-                    <div class="prod-slide-8"><video controls src="video8.MOV"></video></div>
+                    <div class="prod-slide-8"><video controls playsinline src="video8.mp4"></video></div>
                 </div>
                 <button class="slider-btn prev-btn" onclick="changeProd8Slide(-1)">&#10094;</button>
                 <button class="slider-btn next-btn" onclick="changeProd8Slide(1)">&#10095;</button>
             </div>
             <div class="product-details">
                 <h1>Памятка ЭкоСтрана</h1>
-                <p>Компания Faberlic заботится об окружающей среде, и на ПВ организован сбор пластика (пока сбор идет баночек от компании Фаберлик, но в будущем зона обязательно расширится).</p>
-                <p>Памятка для пунктов — это поддержка и помощь в сборе правильного пластика на переработку. Помогите сделать мир чище!</p>
+                <p>Памятка для пунктов — это поддержка и помощь в сборе правильного пластика на переработку.</p>
                 <div class="product-specs">
                     <strong>Характеристики:</strong>
                     <ul>
@@ -621,22 +607,21 @@
         </div>
     </div>
 
-    <!-- ТОВАР 9: ПРЕЗЕНТАЦИОННЫЙ БЛОКНОТ -->
+    <!-- ТОВАР 9 -->
     <div id="product-9" class="page-section">
         <button class="back-btn" onclick="openPage('shop')">← Назад к товарам</button>
         <div class="article-container product-page-container">
             <div class="product-media">
                 <div class="prod-slider-container">
                     <div class="prod-slide-9 active"><img src="tovar9.jpg" alt="Блокнот"></div>
-                    <div class="prod-slide-9"><video controls src="video9.MOV"></video></div>
+                    <div class="prod-slide-9"><video controls playsinline src="video9.mp4"></video></div>
                 </div>
                 <button class="slider-btn prev-btn" onclick="changeProd9Slide(-1)">&#10094;</button>
                 <button class="slider-btn next-btn" onclick="changeProd9Slide(1)">&#10095;</button>
             </div>
             <div class="product-details">
                 <h1>Презентационный блокнот</h1>
-                <p>Идеальный инструмент для презентации бизнеса новичкам и партнерам. Структурированная информация и место для заметок.</p>
-                <p>С этим блокнотом ваши встречи станут профессиональнее, а доносить информацию до команды станет проще и нагляднее.</p>
+                <p>Идеальный инструмент для презентации бизнеса новичкам и партнерам.</p>
                 <div class="product-specs">
                     <strong>Характеристики:</strong>
                     <ul>
@@ -651,178 +636,13 @@
     </div>
 
     <!-- БЛОГИ -->
+    <div id="article-patches" class="page-section"><button class="back-btn" onclick="openPage('beauty')">← Вернуться в Блог</button><div class="article-container"><h1>ВСЕ, что нужно знать о патчах!</h1><img src="patches_1.jpg" class="article-img"><div class="article-text"><p><strong>Скажите мне сколько вы знаете видов патчей?</strong></p><p>До этого момента я знала только про гидрогелиевые патчи для глаз и пробовала для губ, чему была конечно очень удивлена! Но и куда же без смеха, ведь смотрелось это все очень забавно!</p><p>Так что сегодня мы рассмотрим с вами виды! Посмотрим на патчи необычной формы! Но не забывайте! Всегда проверяйте информацию сами и эффект на себе, ведь состояние кожи и реакция на компоненты у всех разное!</p><img src="patches_2.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">ПАТЧИ НА ВСЕ ЧАСТИ ТЕЛА!</h3><p>Ну и давайте начнем с нашего прекрасного личика! Тут у нас большое разнообразие!</p><img src="patches_3.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Голографические микроигольные патчи для глаз!</h3><p>Выглядят они очень эффектно! На просторах интернета их величают последним айфоном в сфере косметологии! Их микроиглы на 98,5% состоят из гиалуроновой кислоты. Проколы абсолютно безболезненны, ведь после вхождения в кожу иглы тают, что обеспечивает более глубокое проникновение активных компонентов.</p><p><strong>Ноооооо…</strong> Это безусловно очень красиво, но стоит ли они своих денег? Почитав отзывы и увидев результаты есть минусики! Во первых в живую это выглядит не так, как в рекламе! Из-за жесткой основы можно наложить так патч, что залом около глаза, не разгладится, а наоборот, станет более явным. Плюс из-за своей же основы кожа потеет.</p><img src="patches_4.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи альгинатные! Маска-патч или тканевые!</h3><p>Альгинатные маски как для всего лица, так и для век представляют собой порошочек, который разводят водичкой и через 20-30 минут после того, как масса застывает, смачиваем края и удаляем нашу масочку, после наносим кремушек.</p><p>Эффективность и результат при этом очень хорошие. Допустим если у вас темные круги от недосыпа то она прекрасно с этим справиться осветляя их.</p><img src="patches_5.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Гидрогелевые патчи</h3><p>Затрагивая гидрогелиевые патчи могу сказать, что использование их самое простое и не сильно затратное по времени. Но не забывайте есть патчи, с которыми можно ходить, а есть с которыми обязательно нужно лежать, чтобы не было анти эффекта!</p><p>Они прекрасно убирают припухлости и освежают кожу. Для меня это наиболее удобно и с моим вечным «я не успеваю» это прям прекрасное решение!</p><img src="patches_6.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Тающие патчи для носогубных складок</h3><p>Тающие — прозрачные пленки, пропитанные омолаживающими компонентами, и защитные — тканевые диски. Эффект от средства не очень длительный, но впечатляющий! Результат очень хорош, они и необычные и справляются со своей задачей! Попробовать на себе точно стоит!</p><img src="patches_7.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Гидрогелевый патч и скраб для губ</h3><p>Разделено на две секции в одной скраб, в другой непосредственно гидрогелиевый патч. Средство мягко, но эффективно скрабирует кожу. Вердикт большинства шикарный скраб, но многим не хочется лежать и ждать эффекта от патчей.</p><img src="patches_8.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Невидимые патчи для проблемной кожи</h3><p>Оперативно уменьшают и успокаивают высыпания. Наклеиваются непосредственно на воспаления. И что скажу на ночь использовать самое то! Я с какого то решила, что они убирают прыщики, хотя они наоборот помогают созреть им и быстрее тем самым избавиться от них!</p><img src="patches_9.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи для огрубевших локтей</h3><p>Вы скажете зачем патчи для локтей ведь есть кремушек? Я задалась тем же вопросом. Четырехлистные пластыри с пропитанной эссенцией сердцевиной всего за 15 минут осветлят и смягчят локти.</p><p>Но со своей задачей они справляются на 100%, единственное есть таки одно «но» - это сильная липкость на коже. Поэтому я бы лучше посоветовала прекрасный для этого Универсальный бальзам-концентрат L.OVE!</p><img src="patches_10.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи для подтяжки груди</h3><p>После похудения и беременности грудь теряет тонус и былой объем, в этом заявляют могут помочь специальные патчи. Ну а что же наши женщины думают по этому поводу? Честно? Все склоняются в сторону покупки крема!</p><img src="patches_11.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи моделирующие для живота и талии</h3><p>Давайте начнем с того, что никакие патчи или кремы не помогут вам скорректировать фигуру без специально подобранной физической нагрузки и правильного питания! Все запомнили? Теперь продолжим!</p><img src="patches_12.jpg" class="article-img"><h3 style="color: var(--primary); margin-top: 30px;">Патчи для ног или пластыри</h3><p>Ну и последнее что затронем это ножки. Девушки которые постоянно на каблуках вы мои героини! В таких случаях мне и помогают кремы охлаждающие, а вот про патчи я не слышала и стало очень интересно! Но отзывы положительные!</p><p>Так что я оставила вам пищу для размышления! Как думаете что это?</p></div><div style="text-align: center; margin-top: 40px;"><a href="https://t.me/TanushkaPups?text=Здравствуйте! Посоветуйте патчи" target="_blank" class="btn-order">Выбрать патчи</a></div></div></div>
     
-    <!-- 1. ПАТЧИ (ПОЛНАЯ СТАТЬЯ) -->
-    <div id="article-patches" class="page-section">
-        <button class="back-btn" onclick="openPage('beauty')">← Вернуться в Блог</button>
-        <div class="article-container">
-            <h1>ВСЕ, что нужно знать о патчах!</h1>
-            
-            <img src="patches_1.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-            
-            <div class="article-text">
-                <p><strong>Скажите мне сколько вы знаете видов патчей?</strong></p>
-                <p>До этого момента я знала только про гидрогелиевые патчи для глаз и пробовала для губ, чему была конечно очень удивлена! Но и куда же без смеха, ведь смотрелось это все очень забавно!</p>
-                <p>Так что сегодня мы рассмотрим с вами виды! Посмотрим на патчи необычной формы! Но не забывайте! Всегда проверяйте информацию сами и эффект на себе, ведь состояние кожи и реакция на компоненты у всех разное!</p>
-
-                <img src="patches_2.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-                <h3 style="color: var(--primary); margin-top: 30px;">ПАТЧИ НА ВСЕ ЧАСТИ ТЕЛА!</h3>
-                <p>Ну и давайте начнем с нашего прекрасного личика! Тут у нас большое разнообразие!</p>
-
-                <img src="patches_3.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-                <h3 style="color: var(--primary); margin-top: 30px;">Голографические микроигольные патчи для глаз!</h3>
-                <p>Выглядят они очень эффектно! На просторах интернета их величают последним айфоном в сфере косметологии! Их микроиглы на 98,5% состоят из гиалуроновой кислоты. Проколы абсолютно безболезненны, ведь после вхождения в кожу иглы тают, что обеспечивает более глубокое проникновение активных компонентов, а значит и более выраженный осветляющий, омолаживающий и противоотечный эффект.</p>
-                <p><strong>Ноооооо…</strong> Это безусловно очень красиво, но стоит ли они своих денег? Почитав отзывы и увидев результаты есть минусики! Во первых в живую это выглядит не так, как в рекламе! Из-за жесткой основы можно наложить так патч, что залом около глаза, не разгладится, а наоборот, станет более явным. Плюс из-за своей же основы кожа потеет и это не эффект волшебного действия гиалуроновой кислоты! Выводы нужно конечно делать не в первый же день, но благодаря специальному прибору на увлажнение выяснили, что результат у него такой же как от альгинатных патчей. Так может и не нужно так тратится на них? Только если для фотографий! Аля смотрите я богатая!</p>
-
-                <img src="patches_4.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-                <h3 style="color: var(--primary); margin-top: 30px;">Патчи альгинатные! Маска-патч или тканевые!</h3>
-                <p>Альгинатные маски как для всего лица, так и для век представляют собой порошочек, который разводят водичкой и через 20-30 минут после того, как масса застывает, смачиваем края и удаляем нашу масочку, после наносим кремушек.</p>
-                <p>Эффективность и результат при этом очень хорошие. Допустим если у вас темные круги от недосыпа то она прекрасно с этим справиться осветляя их. Прекрасно увлажняет кожу и за счет "парникового" эффекта, который обеспечивает маска, мелкие морщинки разглаживаются и вообще взгляд становится отдохнувшим. С небольшой припухлостью, которая бывает по утрам, она так же справляется, возможно за счет охлаждения</p>
-                <p>Патчи из нетканого материала, который более легкий и дышащий, чем гелевые патчи, они не стекают и отлично прилегают к коже. Можно размещать как на нижнем, так и на верхнем веке.</p>
-                <p>Основа патчей намного больше, чем у традиционных, они захватывают кожу щеки и выходят за край глаза, где обычно образовываются мимические морщинки "гусиные лапки", предотвращая их появление.</p>
-                <p>Для многих такие масочки и патчи слишком дороговаты и при этом бывает лень заморачиваться и часто смотрят в сторону тканевых или гидрогелиевых патчей. Их всякое множество и многие очень хорошие, а есть и подсадные утки!</p>
-                <p>Первое всегда попробуйте на маленьком участке кожи если аллергической реакции нет, то уже используете в дело. Берите на проверенных сайтах и смотрите на качество упаковки.</p>
-
-                <img src="patches_5.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-                <h3 style="color: var(--primary); margin-top: 30px;">Гидрогелевые патчи</h3>
-                <p>Затрагивая гидрогелиевые патчи могу сказать, что использование их самое простое и не сильно затратное по времени. Но не забывайте есть патчи, с которыми можно ходить, а есть с которыми обязательно нужно лежать, чтобы не было анти эффекта!</p>
-                <p>Они так же могут избавить вас от темных кругов (повторюсь только если это от недосыпа, а не заболевание, в этом случае нужно лечение) Они прекрасно убирают припухлости и освежают кожу и конечно же так же могут предотвратить мимические морщинки. Для меня это наиболее удобно и с моим вечным «я не успеваю» это прям прекрасное решение!</p>
-
-                <img src="patches_6.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-                <h3 style="color: var(--primary); margin-top: 30px;">Тающие патчи для носогубных складок с лифтинг-эффектом</h3>
-                <p>Тающие — прозрачные пленки, пропитанные омолаживающими компонентами, и защитные — тканевые диски (также с пропиткой), которые наносятся поверх первых для их активации. Эффект от средства не очень длительный, но впечатляющий! Как заявляют! Что же на самом деле? Посмотрев отзывы выяснили, что патчи разделены на две части!</p>
-                <p>Первые очень странные на ощупь, больше напоминают защитный слой в виде пленочки, который обычно снимаешь с патчей. Сами прозрачные, абсолютно сухие, очень тонкие и жестковатые. Первыми крепятся на лице, делают это плохо, местами отлипают, но все же держатся, так как очень тонкие.</p>
-                <p>Вторые необходимо накрывать первые, тоненькие патчи. Они довольно большие, мягкие, эмульсия белого цвета, нежная, кремовая. Крепятся очень легко, накрывают полностью первые патчи. Уже с ними можно ходить, наклоняться и так далее, они не съедут и не отпадут.</p>
-                <p>Результат очень хорош, они и необычные и справляются со своей задачей! Попробовать на себе точно стоит!</p>
-
-                <img src="patches_7.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-                <h3 style="color: var(--primary); margin-top: 30px;">Гидрогелевый патч и скраб для губ</h3>
-                <p>Разделено на две секции в одной скраб, в другой непосредственно гидрогелиевый патч.</p>
-                <p>Средство мягко, но эффективно скрабирует кожу. Отлично удаляет все отмершие клетки, тем самым выравнивает рельеф губ. Благодаря высокому содержанию масел, продукт устраняет стянутость. После его применения кожа становится бархатистой, нежной, гладкой и напитанной, плюс в процессе эксфолиации осуществляется легкий массаж, который стимулирует кровообращение. За счет этого губы выглядят более объемными, а пигмент - ярким.</p>
-                <p>Сам патч лучше держать в позе лежа, сами понимаете причина не в самом средстве, а в участке, на котором его применяют. Все-таки, зафиксироваться на ровной зоне под глазами проще, чем на выпуклых и рельефных губах.</p>
-                <p>Вердикт большинства шикарный скраб, но многим не хочется лежать и ждать эффекта от патчей, который не так заметен, к тому же многие больше в восторге от скраба. Тем более эксфолиирующие частицы не имеют острых углов, работают деликатно и не царапают губы. Многие не любят скрабы для тела на основе сахара, поскольку крупинки в них тают быстрее, чем ты успеваешь распределить продукт. Здесь такой проблемы нет. И это безусловно радует.</p>
-
-                <img src="patches_8.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-                <h3 style="color: var(--primary); margin-top: 30px;">Невидимые патчи для проблемной кожи</h3>
-                <p>Оперативно уменьшают и успокаивают высыпания, восстанавливают кожу. Предотвращают попадание бактерий и воды в очаг воспаления. Наклеиваются непосредственно на воспаления. Незаметны на коже и удобны в применении: можно использовать днем под макияж или оставлять на ночь.</p>
-                <p>Звучит неплохо да, но вот интересно какие они в действии! Тут снова на помощь приходят куча отзывов! И что скажу на ночь использовать самое то! И заодно я поняла, что я тупик! Я с какого то решила, что они убирают прыщики, хотя они наоборот помогают созреть им и быстрее тем самым избавиться от них! Под макияж не особо они подходят, я бы не советовала они заметны, но кстати если надо скрыть несовершенства, то очень даже подходят.</p>
-
-                <img src="patches_9.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-                <h3 style="color: var(--primary); margin-top: 30px;">Патчи для огрубевших локтей</h3>
-                <p>Вы скажете зачем патчи для локтей ведь есть кремушек? Я задалась тем же вопросом. Но Корея не стоит на месте и каждый раз удивляет своими интересностями.</p>
-                <p>Четырехлистные пластыри с пропитанной эссенцией сердцевиной всего за 15 минут осветлят и смягчят локти благодаря своему супер-составу: мочевина, гликолевая, анисовая и винная кислоты, салициловая кислота, гиалуроновая кислота.</p>
-                <p>Нооооо стоит оно того? Вопрос открывается! Для наших дам это больше новика, хотя в Корее они пользуются популярностью как и патчи для глаз. Но они больше рассчитаны для сухой, обезвоженной коже рук.</p>
-                <p>Наклеить их так же квест. Непросто потому, что все мы знаем, где у нас находятся локти, и чтобы расположить патчи по центру локотка это нужно постараться, чтобы не промазать. Но со своей задачей они справляются на 100%, единственное есть таки одно «но» - это сильная липкость на коже, что оставляет после себя живительная эссенция, и которую особенно чувствуешь, если приходиться работать за столом – локти прилипают к его поверхности.</p>
-                <p>Поэтому я бы лучше посоветовала прекрасный для этого Универсальный бальзам-концентрат L.OVE, Отличнейшее средство для восстановления кожных покровов после травм. Также прекрасно лечит сухость губ, не ложиться нефтяной плёнкой как другие средства, полностью всасывается, потому, что натуральный. Прекрасно подходит для всего тела!</p>
-
-                <img src="patches_10.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-                <h3 style="color: var(--primary); margin-top: 30px;">Патчи для подтяжки и увеличения объема груди</h3>
-                <p>После похудения и беременности грудь теряет тонус и былой объем, в этом заявляют могут помочь специальные патчи.</p>
-                <p>Как заявляет продавец: Ультрамягкие маски пропитаны сильнодействующими ингредиентами, которые увеличивают толщину жирового слоя. Прикрепите патчи вместе с идущими в комплекте силиконовыми чашками и забудьте о их существовании на следующие 2 часа. Смягчение и повышение упругости гарантированы, а чтобы наблюдать увеличение на первый сантиметр, понадобится как минимум 16 процедур в течение 1 месяца.</p>
-                <p>Ну а что же наши женщины думают по этому поводу? Честно? Все склоняются в сторону покупки крема, вот честно про них гораздо больше отзывов в 4 раза даже!🤣 Хотя очень хотелось бы испытать, но мне нужно лишь жрать, чтоб набрать и отложить там жир!</p>
-                <p>Вердикт выглядят интересно, но очень мало, я бы даже сказала раз и обчелся отзывов.</p>
-
-                <h3 style="color: var(--primary); margin-top: 30px;">Гидрогелевые патчи для сосков или Гидрогелевые подушечки</h3>
-                <p>И снова нам заявляют одно а по факту другое!</p>
-                <p>Что мы выяснили, эти патчи или подушечки спасают после кормления грудью, охлаждают, заживляют и смягчают кожу отшелушивая.</p>
-                <p>Нооооо очень не удобные! Что первый вариант, что второй, с задачей справляются не многие, но по факту вы платите за кофе и сервис, а вам приносят кофе, но холодный и видно чашка дала трещину.</p>
-                <p>Вердикт, можете попробовать, но я так же скроняюсь именно к крему, а не патчам!</p>
-
-                <img src="patches_11.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-                <h3 style="color: var(--primary); margin-top: 30px;">Патчи моделирующие для живота и талии</h3>
-                <p>Патчи-маски против целлюлита и для увеличения эластичности кожи бедер. Патчи для тела.</p>
-                <p>Давайте начнем с того, что никакие патчи или кремы не помогут вам скорректировать фигуру без специально подобранной физической нагрузки и правильного питания! Все запомнили? Теперь продолжим!</p>
-                <p>Я очень скептически отношусь к таким вещам и не я одна, потому что многие хотят эффекта ничего не делая, а такого не бывает!</p>
-                <p>Так же все надо делать комплексно, безусловно подтягивающие и антицеллюлитные обертывания, массажи, грязевые маски и солевые ванны, скрабики все это дело нужное для кожи, но в комплексе с вышеуказанным! И не в коем случае не по одиночке иначе результат Zero!</p>
-                <p>Так вот отзывы про все эти патчи какие вы думаете? и от кого? Да либо от людей, которые не особо то и хотят что то делать и ищут простой способ. Но особого эффекта не выходит, многие патчи воообще не рабочие! Так что давайте смотреть правде в глаза!</p>
-
-                <img src="patches_12.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-                <h3 style="color: var(--primary); margin-top: 30px;">Патчи для ног или пластыри</h3>
-                <p>Ну и последнее что затронем это ножки, девушки которые постоянно на каблуках вы мои героини! Я тут на конференции была в ботильонах и уже чуть сума не сошла! Как же я была счастлива их снять, но ноги у меня болели знатно! В таких случаях мне и помогают кремы охлаждающие, а вот про патчи я не слышала и стало очень интересно!</p>
-                <p>Но отзывы положительные!</p>
-                <p>А вот то, что я узнала требует тщательной проверки! И прям безумно интересно выяснить все ли это так или нас обманывают ВСЕ производители пластырей!</p>
-                <p>Так что я оставила вам пищу для размышления! Как думаете что это?</p>
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="https://t.me/TanushkaPups?text=Здравствуйте! Посоветуйте патчи" target="_blank" class="btn-order">Выбрать патчи</a>
-            </div>
-        </div>
-    </div>
-
     <!-- 2. ПАРФЮМ (ПОЛНАЯ СТАТЬЯ) -->
-    <div id="article-perfume" class="page-section">
-        <button class="back-btn" onclick="openPage('beauty')">← Вернуться в Блог</button>
-        <div class="article-container">
-            <h1>Волшебство парфюма</h1>
-            <img src="perfume_article.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-            
-            <div class="article-text">
-                <h3 style="color: var(--primary);">ВОЛШЕБСТВО ПЕРВОГО ПАРФЮМА В ИСТОРИИ!</h3>
-                <p>Друзья, сегодня хочу поделиться с вами интересной историей о самом первом парфюме, который стал символом роскоши и изысканности. Ведь именно с него началась целая эпоха ароматов, которая до сих пор пленяет и восхищает нас.</p>
-
-                <p>Думаю мы эту тему еще изучим! Углубимся! Потому что многие источники говорят разное! А пока вот, что мне удалось выяснить!</p>
-
-                <p>История первого парфюма уходит своими корнями в древние времена, в глубь древних цивилизаций. Именно в Египте восемь тысяч лет назад был открыт тайный рецепт первого парфюма. Этот аромат получил название "Киопс" и представлял собой смесь благовоний, масел и цветов. 🌸</p>
-
-                <p>Считается, что создателем первого парфюма была сама королева Клеопатра. Она обладала не только красотой и умом, но и уникальным обонятельным восприятием. С помощью этого парфюма она могла подчеркнуть свою индивидуальность, создать атмосферу загадочности и притягательности. Кажется, что именно благодаря этому парфюму она покорила своими ароматными тайнами множество сердец. ❤️</p>
-
-                <p>С тех пор парфюмерия претерпела огромные изменения и развилась в настоящее искусство. Ароматы стали более сложными и разнообразными, они смогли удивить своей элегантностью и изысканностью. Сейчас парфюм – это не только средство для создания атмосферы, но и настоящая работа искусства, которая может выразить наши чувства и эмоции.</p>
-                
-                <p>Каждый аромат скрывает в себе множество историй и эмоций, он способен трансформировать образ и сделать его неповторимым. Мы можем выбрать парфюм, который будет отражать нашу личность, настроение или подчеркивать наш стиль. 🌺</p>
-
-                <h3 style="color: var(--primary); margin-top: 30px;">А вы знаете какой первый аромат был в компании Faberlic? Не знаете?</h3>
-                <p>Первыми ароматами можно считать коллекцию «Собрание парфюмерии», выпущенную ещё под брендом «Русская линия» в 1999 году, это 4 аромата во сплешевых флаконах объёмом 50 мл в концентрации «духи», упаковка ароматов напоминала книгу.</p>
-                <p>Они назывались «Идеал», «Вечерние», «Каприз» и «Особые».</p>
-
-                <p>И я нашла как они выглядели! Будто окунулись в воспоминания! И это так! Потому что ароматы могут переносить нас в прошлое! Показать будущее! И насладиться настоящим!</p>
-
-                <p>Кстати в настоящий момент ассортимент парфюмерной продукции компании Faberlic постоянно пополняется и составляет более 90 ароматов! Вот так!</p>
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="https://t.me/TanushkaPups?text=Здравствуйте! Хочу подобрать аромат Faberlic" target="_blank" class="btn-order">Подобрать аромат</a>
-            </div>
-        </div>
-    </div>
+    <div id="article-perfume" class="page-section"><button class="back-btn" onclick="openPage('beauty')">← Вернуться в Блог</button><div class="article-container"><h1>Волшебство парфюма</h1><img src="perfume_article.jpg" class="article-img"><div class="article-text"><h3 style="color: var(--primary);">ВОЛШЕБСТВО ПЕРВОГО ПАРФЮМА В ИСТОРИИ!</h3><p>Друзья, сегодня хочу поделиться с вами интересной историей о самом первом парфюме, который стал символом роскоши и изысканности. Ведь именно с него началась целая эпоха ароматов, которая до сих пор пленяет и восхищает нас.</p><p>Думаю мы эту тему еще изучим! Углубимся! Потому что многие источники говорят разное! А пока вот, что мне удалось выяснить!</p><p>История первого парфюма уходит своими корнями в древние времена, в глубь древних цивилизаций. Именно в Египте восемь тысяч лет назад был открыт тайный рецепт первого парфюма. Этот аромат получил название "Киопс" и представлял собой смесь благовоний, масел и цветов. 🌸</p><p>Считается, что создателем первого парфюма была сама королева Клеопатра. Она обладала не только красотой и умом, но и уникальным обонятельным восприятием. С помощью этого парфюма она могла подчеркнуть свою индивидуальность, создать атмосферу загадочности и притягательности. Кажется, что именно благодаря этому парфюму она покорила своими ароматными тайнами множество сердец. ❤️</p><p>С тех пор парфюмерия претерпела огромные изменения и развилась в настоящее искусство. Ароматы стали более сложными и разнообразными, они смогли удивить своей элегантностью и изысканностью. Сейчас парфюм – это не только средство для создания атмосферы, но и настоящая работа искусства, которая может выразить наши чувства и эмоции.</p><p>Каждый аромат скрывает в себе множество историй и эмоций, он способен трансформировать образ и сделать его неповторимым. Мы можем выбрать парфюм, который будет отражать нашу личность, настроение или подчеркивать наш стиль. 🌺</p><h3 style="color: var(--primary); margin-top: 30px;">А вы знаете какой первый аромат был в компании Faberlic? Не знаете?</h3><p>Первыми ароматами можно считать коллекцию «Собрание парфюмерии», выпущенную ещё под брендом «Русская линия» в 1999 году, это 4 аромата во сплешевых флаконах объёмом 50 мл в концентрации «духи», упаковка ароматов напоминала книгу.</p><p>Они назывались «Идеал», «Вечерние», «Каприз» и «Особые».</p><p>И я нашла как они выглядели! Будто окунулись в воспоминания! И это так! Потому что ароматы могут переносить нас в прошлое! Показать будущее! И насладиться настоящим!</p><p>Кстати в настоящий момент ассортимент парфюмерной продукции компании Faberlic постоянно пополняется и составляет более 90 ароматов! Вот так!</p></div><div style="text-align: center; margin-top: 40px;"><a href="https://t.me/TanushkaPups?text=Здравствуйте! Хочу подобрать аромат Faberlic" target="_blank" class="btn-order">Подобрать аромат</a></div></div></div>
 
     <!-- 3. ПИГМЕНТАЦИЯ (ПОЛНАЯ СТАТЬЯ) -->
-    <div id="article-pigmentation" class="page-section">
-        <button class="back-btn" onclick="openPage('beauty')">← Вернуться в Блог</button>
-        <div class="article-container">
-            <h1>Пигментация</h1>
-            <img src="pigmentation2.jpg" class="article-img" onerror="this.src='https://via.placeholder.com/800'">
-            <div class="article-text">
-                <p><strong>Это слово имеет на данный момент негативный оттенок!</strong> С ней борются, многие скрывают, называют болезнью! А некоторые наоборот рисуют веснушки на лице, чтоб выделяться!</p>
-
-                <p>А ведь и правда, что мы знаем о пигментации? Важно различать где это норма, а где нужно обратиться к специалисту и подобрать для себя лучшее решение проблемы!</p>
-
-                <p>Итак благодаря меланину наша кожа способна менять окрас. Количество пигментных клеток – меланоцитов – одинаково что у папуасов, что у финнов. А наш с вами цвет кожи зависит от того, как они кучкуются.</p>
-
-                <h3 style="color: var(--primary); margin-top: 30px;">Что полезно знать! Простые правила:</h3>
-                <ul style="margin-left: 20px;">
-                    <li>укрепляйте иммунитет,</li>
-                    <li>правильно питайтесь,</li>
-                    <li>правильно умывайтесь,</li>
-                    <li>отказ от алкоголя и сигарет,</li>
-                    <li>будьте осторожны с приемом лекарств,</li>
-                    <li>избегайте прямых солнечных лучей.</li>
-                </ul>
-
-                <p>О солнцезащитных помощников мы уже болтали, сейчас я хочу познакомить вас с линейкой средств по уходу за кожей склонной к пигментации.</p>
-                <p><strong>Но для начала...</strong><br>На глаза мне попала статья где девушка рассказывала как в 17 лет умилялась милым веснушкам на носу и мама не посоветовала ей беречь кожу, а это оказалось очень важно! Она прошла долгий путь по выписыванию жутко дорогих заморских отбеливающих баночек, пилингов и дорогущих аппаратных процедур.</p>
-                <p>Но все не помогало и только усугублялось, ведь ведь она наивно успокаивала себя "потом, все потом"</p>
-
-                <p>Сейчас смотря на комплексы, которые доступны в нашей компании решающие самые разные задачи я безумно рада, что все это качественно и доступно! Не нужно заказывать втридорога или лететь в другие страны, чтобы решить проблему! Все доступно тут и сейчас!</p>
-
-                <p>Благодаря комплексу <strong>Expert</strong> можно добиться улучшения ваши кожи!</p>
-                <p>Помогите своим детям с молоду заботиться о коже! Плюс это должно быть комплексно! Тут как всегда на помощь приходит <strong>Molecular force</strong>!</p>
-            </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="https://t.me/TanushkaPups?text=Здравствуйте! Посоветуйте средства от пигментации" target="_blank" class="btn-order">Подобрать уход</a>
-            </div>
-        </div>
-    </div>
+    <div id="article-pigmentation" class="page-section"><button class="back-btn" onclick="openPage('beauty')">← Вернуться в Блог</button><div class="article-container"><h1>Пигментация</h1><img src="pigmentation2.jpg" class="article-img"><div class="article-text"><p><strong>Это слово имеет на данный момент негативный оттенок!</strong> С ней борются, многие скрывают, называют болезнью! А некоторые наоборот рисуют веснушки на лице, чтоб выделяться!</p><p>А ведь и правда, что мы знаем о пигментации? Важно различать где это норма, а где нужно обратиться к специалисту и подобрать для себя лучшее решение проблемы!</p><p>Итак благодаря меланину наша кожа способна менять окрас. Количество пигментных клеток – меланоцитов – одинаково что у папуасов, что у финнов. А наш с вами цвет кожи зависит от того, как они кучкуются.</p><h3 style="color: var(--primary); margin-top: 30px;">Что полезно знать! Простые правила:</h3><ul style="margin-left: 20px;"><li>укрепляйте иммунитет,</li><li>правильно питайтесь,</li><li>правильно умывайтесь,</li><li>отказ от алкоголя и сигарет,</li><li>будьте осторожны с приемом лекарств,</li><li>избегайте прямых солнечных лучей.</li></ul><p>О солнцезащитных помощников мы уже болтали, сейчас я хочу познакомить вас с линейкой средств по уходу за кожей склонной к пигментации.</p><p><strong>Но для начала...</strong><br>На глаза мне попала статья где девушка рассказывала как в 17 лет умилялась милым веснушкам на носу и мама не посоветовала ей беречь кожу, а это оказалось очень важно! Она прошла долгий путь по выписыванию жутко дорогих заморских отбеливающих баночек, пилингов и дорогущих аппаратных процедур.</p><p>Но все не помогало и только усугублялось, ведь ведь она наивно успокаивала себя "потом, все потом"</p><p>Сейчас смотря на комплексы, которые доступны в нашей компании решающие самые разные задачи я безумно рада, что все это качественно и доступно! Не нужно заказывать втридорога или лететь в другие страны, чтобы решить проблему! Все доступно тут и сейчас!</p><p>Благодаря комплексу <strong>Expert</strong> можно добиться улучшения ваши кожи!</p><p>Помогите своим детям с молоду заботиться о коже! Плюс это должно быть комплексно! Тут как всегда на помощь приходит <strong>Molecular force</strong>!</p></div><div style="text-align: center; margin-top: 40px;"><a href="https://t.me/TanushkaPups?text=Здравствуйте! Посоветуйте средства от пигментации" target="_blank" class="btn-order">Подобрать уход</a></div></div></div>
 
     <!-- СКРИПТЫ -->
     <script>
@@ -906,7 +726,6 @@
             track.style.transform = `translateX(-${percentMove}%)`;
         }
 
-        // --- СКРИПТЫ ТОВАРОВ ---
         let prod1Index = 0; function changeProd1Slide(d) { const s=document.querySelectorAll('.prod-slide'); const t=s.length; s[prod1Index].classList.remove('active'); prod1Index+=d; if(prod1Index<0)prod1Index=t-1; if(prod1Index>=t)prod1Index=0; s[prod1Index].classList.add('active'); }
         let prod2Index = 0; function changeProd2Slide(d) { const s=document.querySelectorAll('.prod-slide-2'); const t=s.length; s[prod2Index].classList.remove('active'); prod2Index+=d; if(prod2Index<0)prod2Index=t-1; if(prod2Index>=t)prod2Index=0; s[prod2Index].classList.add('active'); }
         let prod3Index = 0; function changeProd3Slide(d) { const s=document.querySelectorAll('.prod-slide-3'); const t=s.length; s[prod3Index].classList.remove('active'); prod3Index+=d; if(prod3Index<0)prod3Index=t-1; if(prod3Index>=t)prod3Index=0; s[prod3Index].classList.add('active'); }
