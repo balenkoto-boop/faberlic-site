@@ -208,7 +208,7 @@
     <div id="home" class="page-section active">
         <!-- ТАЙМЕР -->
         <div class="countdown-container">
-            <div class="countdown-title">⏳ До конца периода №2 осталось:</div>
+            <div class="countdown-title">⏳ До конца периода №3 осталось:</div>
             <div class="timer-wrapper">
                 <div class="time-box"><span id="days" class="time-value">0</span><span class="time-label">Дней</span></div>
                 <div class="time-box"><span id="hours" class="time-value">0</span><span class="time-label">Часов</span></div>
@@ -224,30 +224,33 @@
                 <p class="hero-offer">Оформите скидку <strong>20%</strong> прямо сейчас и получите гарантированный подарок за первый заказ!</p>
                 <div class="hero-buttons">
                     <a href="https://faberlic.com/register?sponsornumber=716061706&lang=ru&r=1000034210371" target="_blank" class="btn-main">ЗАРЕГИСТРИРОВАТЬСЯ</a>
-                    <a href="https://faberlic.com/index.php?option=com_flippingbook&view=book3&id=9239&r=1000034210371&lang=RU&sponsornumber=716061706" target="_blank" class="btn-outline">СМОТРЕТЬ КАТАЛОГ</a>
+                    <a href="https://faberlic.com/index.php?option=com_flippingbook&view=book3&id=9258&r=1000034210371&lang=RU&sponsornumber=716061706" target="_blank" class="btn-outline">СМОТРЕТЬ КАТАЛОГ</a>
                 </div>
             </div>
             
             <!-- СМЕНА КАРТИНОК -->
             <div class="hero-image">
-                <img src="catalog.jpg" class="hero-slide active" alt="Каталог 1">
-                <img src="catalog2.png" class="hero-slide" alt="Каталог 2">
+                <img src="images/katalog/catalog.jpg" class="hero-slide active" alt="Каталог 1">
+                <img src="images/katalog/catalog2.png" class="hero-slide" alt="Каталог 2">
             </div>
         </div>
 
         <!-- Блок 2: Слайдер Акций -->
         <div class="promo-slider-section">
-            <h2>🔥 АКЦИИ КАТАЛОГА</h2>
-            <button class="slider-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
-            <div class="slider-viewport">
-                <div class="slider-track" id="track">
-                    <div class="promo-slide"><img src="promo1.jpg" onerror="this.src='https://via.placeholder.com/400'"></div>
-                    <div class="promo-slide"><img src="promo2.jpg" onerror="this.src='https://via.placeholder.com/400'"></div>
-                    <div class="promo-slide"><img src="promo3.jpg" onerror="this.src='https://via.placeholder.com/400'"></div>
-                    <div class="promo-slide"><img src="promo4.jpg" onerror="this.src='https://via.placeholder.com/400'"></div>
-                    <div class="promo-slide"><img src="promo5.jpg" onerror="this.src='https://via.placeholder.com/400'"></div>
-                    <div class="promo-slide"><img src="promo6.jpg" onerror="this.src='https://via.placeholder.com/400'"></div>
-                </div>
+    <h2>🔥 АКЦИИ КАТАЛОГА</h2>
+    <button class="slider-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+    <div class="slider-viewport">
+        <div class="slider-track" id="track">
+            <div class="promo-slide"><img src="images/aktsii-kataloga/promo1.jpg" onerror="this.src='https://via.placeholder.com/400'"></div>
+            <div class="promo-slide"><img src="images/aktsii-kataloga/promo2.jpg" onerror="this.src='https://via.placeholder.com/400'"></div>
+            <div class="promo-slide"><img src="images/aktsii-kataloga/promo3.jpg" onerror="this.src='https://via.placeholder.com/400'"></div>
+            <div class="promo-slide"><img src="images/aktsii-kataloga/promo4.jpg" onerror="this.src='https://via.placeholder.com/400'"></div>
+            <div class="promo-slide"><img src="images/aktsii-kataloga/promo5.jpg" onerror="this.src='https://via.placeholder.com/400'"></div>
+            <div class="promo-slide"><img src="images/aktsii-kataloga/promo6.jpg" onerror="this.src='https://via.placeholder.com/400'"></div>
+        </div>
+    </div>
+    <button class="slider-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+</div>
             </div>
             <button class="slider-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
         </div>
@@ -297,14 +300,7 @@
                 <p><strong>(30.01 — 28.02)</strong></p>
                 <p>В акции принимают участие чеки в которых есть <strong>БАДы</strong>. Розыгрыш 3-х призов и утешительные призы всем!</p>
             </div>
-            <div class="pvz-promo-card">
-                <img src="action3.jpg" alt="Акция 3">
-                <h4>ДЕНЬ ЗДОРОВЬЯ в пунктах выдачи 🍏</h4>
-                <p>Забота о себе — лучший подарок! Приходите в наш пункт выдачи и получите секретный промокод.</p>
-                <p><strong>🎁 Скидка -50% на все товары категории "Здоровье"!</strong></p>
-                <p style="font-size: 0.9em; color: #666;">(*кроме аппаратов ДЭНАС, Signum и серии Activity).</p>
             </div>
-        </div>
         <div style="text-align: center; margin-top: 20px;"><a href="https://t.me/+mfoEAgOO6WlmN2Iy" target="_blank" class="btn-main">Перейти в Чат ПВЗ</a></div>
     </div>
 
@@ -475,7 +471,7 @@
         setInterval(createPetal, 300);
 
         // --- ТАЙМЕР ---
-        const targetDate = new Date("2026-02-15T23:59:59"); 
+        const targetDate = new Date("2026-03-01T23:59:59"); 
 
         function updateTimer() {
             const now = new Date();
